@@ -2,11 +2,17 @@ import NetworkComponents as net
 import NumericComponents as num
 
 class NeuralNetwork:
-	def __init__(self, layout, learning_rate=0.001): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
+	def __init__(self, layout, activation='sigmoid'): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
 		if len(layout) < 2:
-			raise IndexError("The length of layout is less than 2")
+			raise IndexError("The length of layout [" + str(len(layout)) + "] is less than 2")
 
-		self.learning_rate = learning_rate
+		if(activation == 'sigmoid'):
+			self.activation = num.Sigmoid
+		elif(activation == 'tanh'):
+			self.activation = num.Tanh
+		else:
+			raise NameError("There is no [" + activation + "] function.")
+
 		layer_list = []
 
 		for l in range(len(layout)):
@@ -33,7 +39,7 @@ class NeuralNetwork:
 
 	def Run(self, input):
 		if len(input) != len(self.layer_list[0].neuron_list):
-			raise BaseException("The number of input is not equal to the number of nodes of input layer")
+			raise BaseException("The number of input is not equal to the size of input layer")
 
 		for l in range(len(self.layer_list)):
 			layer = self.layer_list[l]
@@ -52,7 +58,8 @@ class NeuralNetwork:
 						dendrite = neuron.dendrite_list[d]
 						value += dendrite.weight * self.layer_list[l-1].neuron_list[d].value
 						
-					value = num.Sigmoid(value + neuron.bias)
+					
+					value = self.activation(value + neuron.bias)
 					neuron.value = value
 
 		return [neuron.value for neuron in self.layer_list[len(self.layer_list) - 1].neuron_list]
