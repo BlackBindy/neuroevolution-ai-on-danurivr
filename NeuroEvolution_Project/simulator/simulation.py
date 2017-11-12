@@ -4,7 +4,14 @@ class Simulation:
 		self.fps = fps
 
 		# private
+		self.__bomb_list = []
 		self.__frame_count = 1
+
+	def get_bomb_list(self):
+		return self.__bomb_list
+
+	def add_bomb(self, bomb):
+		self.__bomb_list.append(bomb)
 
 	def get_frame_count(self):
 		return self.__frame_count

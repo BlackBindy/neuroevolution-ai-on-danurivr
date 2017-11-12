@@ -11,3 +11,5 @@ class Simulator:
 			self.player.move()
 			self.sim.inc_frame_count()
 			# print(self.player.position)
+			for bomb in self.sim.get_bomb_list():
+				bomb.move()
