@@ -51,6 +51,7 @@ class Player:
 		to_enemy = (to_enemy[0]/sqrt, to_enemy[1]/sqrt)
 		bomb = Bomb(self.pos, to_enemy)
 		self.sim.add_bomb(bomb)
+		print ("Fire!")
 
 	###### Test purpose (to be removed)
 	def get_cur_speed(self):
