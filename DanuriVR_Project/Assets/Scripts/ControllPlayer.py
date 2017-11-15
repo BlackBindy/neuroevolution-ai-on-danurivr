@@ -8,6 +8,9 @@ class ControllPlayer(Actor.Actor):
 
 		self._pos = Math3d.Vector3(0)
 		self._targetDir = Math3d.Vector3(0)
+		self._bombList = [];
+		self._bomb_dirList = [];
+
 	def OnCreate(self, uid):
 		self._radius = 38
 		self._angle = 0
@@ -16,9 +19,9 @@ class ControllPlayer(Actor.Actor):
 		self._look = 0
 		self._targetDir = (0,0,0)
 
-		#load prefab
-		self._bomb = self.bomb_con.LoadPrefab("$project/Assets/Bomb.prefab")
-		print(self._bomb)
+		self._bombCount = 0;
+
+		self.bomb_con.AddNewComponent("TransformGroup")
 		return 0
 
 	def Update(self):
@@ -31,12 +34,12 @@ class ControllPlayer(Actor.Actor):
 		#Camera look at
 		self._targetDir = self.GetLocalDir(self._pos)
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
+
 		
-		
-		#shoot
-		self._bomb.PropInstance.SetShow(True)
-		self._bomb.FindComponentByType("TransformGroup").SetPosition(Math3d.Vector3(0,10,0))
-		#print(self._bomb.FindComponentByType("TransformGroup").IsVisible())
+		for i in range(len(self._bombList)):
+			bompos = self._bombList[i].FindComponentByType("TransformGroup").GetPosition();
+			self._bombList[i].FindComponentByType("TransformGroup").SetPosition(bompos + self._bomb_dirList[i])
+
 
 		return 0
 
@@ -50,6 +53,8 @@ class ControllPlayer(Actor.Actor):
 				self._look += 0.5
 			elif (number == 40): #down arrow
 				self._look -= 0.5
+			elif (number == 32):	#space
+				self.Shoot(self._targetDir, self._pos);
 
 		self._pos.x = self._radius * math.cos(math.radians(self._angle))
 		self._pos.z = self._radius * math.sin(math.radians(self._angle))
@@ -69,3 +74,17 @@ class ControllPlayer(Actor.Actor):
 		v.z = temp.x * math.sin(math.radians(self._look)) + temp.z * math.cos(math.radians(self._look))
 		return v
 
+	def Shoot(self, direction, pos):
+		#save target direction
+		direction.Normalize()
+		self._bomb_dirList.append(direction)
+
+		#load prefab
+		
+		self._bombList.append(self.bomb_con.LoadPrefab("$project/Assets/Bomb.prefab"))
+		
+		#create bomb
+		self._bombList[self._bombCount].PropInstance.SetShow(True)
+		self._bombList[self._bombCount].FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
+
+		self._bombCount += 1
