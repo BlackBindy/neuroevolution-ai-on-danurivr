@@ -35,7 +35,7 @@ class ControllPlayer(Actor.Actor):
 		self._targetDir = self.GetLocalDir(self._pos)
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
 
-		
+		#shoot ball
 		for i in range(len(self._bombList)):
 			bompos = self._bombList[i].FindComponentByType("TransformGroup").GetPosition();
 			self._bombList[i].FindComponentByType("TransformGroup").SetPosition(bompos + self._bomb_dirList[i])
@@ -80,7 +80,6 @@ class ControllPlayer(Actor.Actor):
 		self._bomb_dirList.append(direction)
 
 		#load prefab
-		
 		self._bombList.append(self.bomb_con.LoadPrefab("$project/Assets/Bomb.prefab"))
 		
 		#create bomb
