@@ -18,9 +18,11 @@ class ControllPlayer(Actor.Actor):
 		self._Up = self.cam.FindComponentByType("TransformGroup").GetUp()
 		self._look = 0
 		self._targetDir = (0,0,0)
-
 		self._bombCount = 0;
 
+		self._enemyR = 2.0;
+		self._ballR = 0.5;
+		self._distance = self._enemyR + self._ballR
 		self.bomb_con.AddNewComponent("TransformGroup")
 		return 0
 
@@ -39,6 +41,11 @@ class ControllPlayer(Actor.Actor):
 		for i in range(len(self._bombList)):
 			bompos = self._bombList[i].FindComponentByType("TransformGroup").GetPosition();
 			self._bombList[i].FindComponentByType("TransformGroup").SetPosition(bompos + self._bomb_dirList[i])
+
+		#check collision
+		for i in range(len(self._bombList)):
+			if(Getdistance(self._bombList[i].FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
+				print("Collision!")
 
 
 		return 0
@@ -87,3 +94,8 @@ class ControllPlayer(Actor.Actor):
 		self._bombList[self._bombCount].FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
 
 		self._bombCount += 1
+
+def Getdistance(v1, v2):
+	distance = float(0)
+	distance = math.sqrt(math.pow(v1.x-v2.x, 2) + math.pow(v1.y-v2.y, 2) + math.pow(v1.z-v2.z, 2))
+	return distance
