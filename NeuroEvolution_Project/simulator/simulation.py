@@ -1,13 +1,16 @@
 class Simulation:
-	def __init__(self, total_frames, fps=60, stage_rad=30, bomb_area=40):
-		self.total_frames = total_frames
-		self.fps = fps
-		self.stage_rad = stage_rad
-		self.bomb_area = bomb_area
-
+	def __init__(self, id):
+		self.id = id
+		
 		# private
 		self.__bomb_list = []
 		self.__frame_count = 1
+
+	def assign_player(self, player):
+		self.player = player
+
+	def assign_enemy(self, enemy):
+		self.enemy = enemy
 
 	def get_bomb_list(self):
 		return self.__bomb_list

@@ -2,7 +2,7 @@ from . import network_components as net
 from . import numeric_components as num
 
 class NeuralNetwork:
-	def __init__(self, layout, activation='sigmoid'): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
+	def __init__(self, layout, activation='tanh'): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
 		if len(layout) < 2:
 			raise IndexError("The length of layout [" + str(len(layout)) + "] is less than 2")
 

@@ -3,25 +3,25 @@ import random as rd
 import math
 
 class Player:
-	def __init__(self, simulation, position, speed=1, move_cycle=30, fire_rate=1, fire_cycle=3, play_area=38):
+	def __init__(self, simulation, position, fps, play_area, speed=1, move_cycle=30, fire_rate=1, fire_cycle=3):
 		self.sim = simulation
 		self.pos = position
 		self.speed = speed # speed in degree
 		self.move_cycle = move_cycle # least number of frames that player should maintain the speed
-		self.fire_rate = fire_rate * self.sim.fps # minimum number of frames until the next fire
-		self.fire_cycle = fire_cycle * self.sim.fps # maximum number of frames until the next fire
+		self.fire_rate = fire_rate * fps # minimum number of frames until the next fire
+		self.fire_cycle = fire_cycle * fps # maximum number of frames until the next fire
 		self.play_area = play_area
 
 		# private
 		self.assign_speed()
 		self.assign_next_fire()
 
-	def move(self):
+	def move(self, enemy_pos):
 		# Shoot a bomb (decrease next_fire by 1, when it reaches 0 then fire)
 		if(self.__next_fire > 0):
 			self.__next_fire -= 1
 		else:
-			self.fire()
+			self.fire(enemy_pos)
 			self.assign_next_fire()
 
 		# Change the speed every n frames (n: move_cycle)
@@ -44,8 +44,7 @@ class Player:
 		self.__next_fire = rd.randint(self.fire_rate, self.fire_cycle)
 
 	# Fire a bomb
-	def fire(self):
-		enemy_pos = (0, 0) # TEMP
+	def fire(self, enemy_pos):
 		to_enemy = (enemy_pos[0]-self.pos[0], enemy_pos[1]-self.pos[1]) # TEMP
 		sqrt = math.sqrt(to_enemy[0]**2 + to_enemy[1]**2)
 		to_enemy = (to_enemy[0]/sqrt, to_enemy[1]/sqrt)
