@@ -17,15 +17,17 @@ class Player:
 		self.assign_next_fire()
 
 	def move(self, enemy_pos):
+		log = ""
 		# Shoot a bomb (decrease next_fire by 1, when it reaches 0 then fire)
 		if(self.__next_fire > 0):
 			self.__next_fire -= 1
 		else:
-			self.fire(enemy_pos)
+			log = self.fire(enemy_pos)
 			self.assign_next_fire()
 
 		# Change the speed every n frames (n: move_cycle)
-		if(self.sim.get_frame_count() % self.move_cycle == 0):
+		cur_frame = self.sim.get_frame_count()
+		if((cur_frame % self.move_cycle == 0) and (cur_frame != 0)):
 			self.assign_speed()
 
 		# Calculate the new position
@@ -34,6 +36,8 @@ class Player:
 		new_x = (cos_v * self.pos[0]) - (sin_v * self.pos[1])
 		new_y = (sin_v * self.pos[0]) + (cos_v * self.pos[1])
 		self.pos = (new_x, new_y)
+
+		return log
 
 	# Assign a new speed in RADIAN (not in degree)
 	def assign_speed(self):
@@ -50,7 +54,7 @@ class Player:
 		to_enemy = (to_enemy[0]/sqrt, to_enemy[1]/sqrt)
 		bomb = Bomb(self.pos, to_enemy)
 		self.sim.add_bomb(bomb)
-		print ("Fire!")
+		return " : Fire to (%.3f, %.3f)"%(to_enemy[0], to_enemy[1])
 
 	###### Test purpose (to be removed)
 	def get_cur_speed(self):

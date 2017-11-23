@@ -85,18 +85,21 @@ class Enemy:
 			self._vel = (v[0], v[1])
 
 		# Move
-		print ("e.x: %.3f, e.y: %.3f, p.x: %.3f, p.y: %.3f, b.x: %.3f, b.y: %.3f"%(e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal))
+		log = "Network Inputs: O (%.3f, %.3f), P (%.3f, %.3f), B (%.3f, %.3f)"%(e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal)
 		#print ("%.4f, %.4f, %.4f, %.4f, %.4f, %.4f"%(e_x, e_y, p_x, p_y, b_x, b_y))
 		# print ("%.4f, %.4f, %.4f, %.4f, %.4f, %.4f"%(w_x, w_y, p_x, p_y, b_x, b_y))
 		# print("original vel: " + str(self._vel))
 		self._vel = (self._vel[0]*self.amplifier, self._vel[1]*self.amplifier) # [-1, 1] -> [-max_speed, max_speed]
 		# print("to origin: %.3f, to wall: %.3f, to player: %.3f"%(e_d, w_d, p_d))
-		print("Network Result: (%.3f, %.3f), Velocity: (%.3f, %.3f)"%(v[0], v[1], self._vel[0], self._vel[1]))
+		log += "\nNetwork Result: (%.3f, %.3f), Velocity: (%.3f, %.3f)"%(v[0], v[1], self._vel[0], self._vel[1])
 		#print("Final Velocity: %.4f, %.4f"%(self._vel[0], self._vel[1]))
 		pos = (e_x + self._vel[0], e_y + self._vel[1])
 		#print("Final Position: %.4f, %.4f"%(pos[0], pos[1]))
 
 		# If the new position is outside of the stage, there is no change on position
 		if ((math.sqrt(pos[0]**2 + pos[1]**2) + self.rad) < self.stage_rad):
-			print("---- MOVE ----")
 			self.pos = pos
+			log += "\n----- Enemy Move -----"
+
+		# Print the log
+		return log

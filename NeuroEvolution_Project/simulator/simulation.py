@@ -1,10 +1,12 @@
 class Simulation:
 	def __init__(self, id):
 		self.id = id
-		
+		self.player = None
+		self.enemy = None
+
 		# private
 		self.__bomb_list = []
-		self.__frame_count = 1
+		self.__frame_count = 0
 
 	def assign_player(self, player):
 		self.player = player
