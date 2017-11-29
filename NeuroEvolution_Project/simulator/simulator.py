@@ -1,15 +1,18 @@
-from .simulation import Simulation
 from .player import Player
-from .enemy import Enemy
+from .simulation import Simulation
 
 class Simulator:
-	def __init__(self, total_frames, player_pos, enemy_num, network_size, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_rank=0):
-		self.sim_list = [Simulation(i) for i in range(enemy_num)]
-		for sim in self.sim_list:
+	def __init__(self, total_frames, player_pos, enemy_list, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_rank=0):
+		self.enemy_num = len(enemy_list)
+
+		self.sim_list = [Simulation(i) for i in range(self.enemy_num)]
+		for i in range(len(self.sim_list)):
+			sim = self.sim_list[i]
 			sim.assign_player(Player(sim, player_pos, fps, play_area))
-			sim.assign_enemy(Enemy(network_size, stage_rad, play_area, bomb_area))
+			enemy_list[i].assign_sim_info(play_area, stage_rad, bomb_area)
+			sim.assign_enemy(enemy_list[i])
+
 		self.total_frames = total_frames
-		self.enemy_num = enemy_num
 		self.fps = fps
 		self.play_area = play_area
 		self.stage_rad = stage_rad
@@ -105,3 +108,8 @@ class Simulator:
 			survival_time = self.sim_list[i].get_frame_count()/self.fps
 			bomb_count = self.sim_list[i].player.bomb_count
 			print("%d has survived %.2fseconds | Bomb count: %d"%(i, survival_time, bomb_count))
+
+	def fetch_top_enemies(self, num):
+		if len(self.__rank) == 0:
+			raise IndexError("Enemies are not ranked yet")
+		return [self.sim_list[i].enemy for i in self.__rank[:num]]

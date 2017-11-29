@@ -2,11 +2,11 @@ from network.neural_network import NeuralNetwork
 import math
 
 class Enemy:
-	def __init__(self, network_size, stage_rad, play_area, bomb_area, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100):
+	def __init__(self, network_size, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100):
 		self.nn = NeuralNetwork(network_size, activation=activation)
-		self.stage_rad = stage_rad
-		self.play_area = play_area
-		self.bomb_area = bomb_area
+		self.play_area = None
+		self.stage_rad = None
+		self.bomb_area = None
 		self.pos = position
 		self.rad = radius
 		self.amplifier = max_speed / math.sqrt(2) # to amplify the speed from [-1, 1] to [-max_speed, max_speed]
@@ -15,6 +15,11 @@ class Enemy:
 
 		# private		
 		self._vel = (0, 0) # velocity
+
+	def assign_sim_info(self, play_area, stage_rad, bomb_area):
+		self.play_area = play_area
+		self.stage_rad = stage_rad
+		self.bomb_area = bomb_area
 
 	def move(self, bomb_list, player_pos):
 		# Distance of the enemy from the origin
