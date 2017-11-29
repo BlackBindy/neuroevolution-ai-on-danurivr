@@ -11,6 +11,7 @@ class Player:
 		self.fire_rate = fire_rate * fps # minimum number of frames until the next fire
 		self.fire_cycle = fire_cycle * fps # maximum number of frames until the next fire
 		self.play_area = play_area
+		self.bomb_count = 0
 
 		# private
 		self.assign_speed()
@@ -54,6 +55,7 @@ class Player:
 		to_enemy = (to_enemy[0]/sqrt, to_enemy[1]/sqrt)
 		bomb = Bomb(self.pos, to_enemy)
 		self.sim.add_bomb(bomb)
+		self.bomb_count += 1
 		return " : Fire to (%.3f, %.3f)"%(to_enemy[0], to_enemy[1])
 
 	###### Test purpose (to be removed)

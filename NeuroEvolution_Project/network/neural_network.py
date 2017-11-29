@@ -2,7 +2,7 @@ from . import network_components as net
 from . import numeric_components as num
 
 class NeuralNetwork:
-	def __init__(self, layout, activation='tanh'): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
+	def __init__(self, layout, activation='tanh', weights=None): # layout : the array of int, layout[i] indicates the number of nodes of ith layer
 		if len(layout) < 2:
 			raise IndexError("The length of layout [" + str(len(layout)) + "] is less than 2")
 
@@ -85,3 +85,12 @@ class NeuralNetwork:
 
 			if(l > 0):
 				print(result_layer)
+
+	# Vectorize the weights and the biases
+	def vectorize(self):
+		vec = []
+		for l in range(len(self.layer_list)):
+			for neuron in len(neuron_list):
+				for dendrite in neuron.dendrite_list:
+					vec.append(dendrite.weight)
+				vec.append(neuron.bias)

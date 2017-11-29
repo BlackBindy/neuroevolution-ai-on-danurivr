@@ -3,7 +3,7 @@ from .player import Player
 from .enemy import Enemy
 
 class Simulator:
-	def __init__(self, total_frames, player_pos, enemy_num, network_size, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_log=False):
+	def __init__(self, total_frames, player_pos, enemy_num, network_size, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_rank=-1):
 		self.sim_list = [Simulation(i) for i in range(enemy_num)]
 		for sim in self.sim_list:
 			sim.assign_player(Player(sim, player_pos, fps, play_area))
@@ -14,15 +14,21 @@ class Simulator:
 		self.play_area = play_area
 		self.stage_rad = stage_rad
 		self.bomb_area = bomb_area
-		self.print_log = print_log
+		self.print_rank = print_rank
 
 		# Private
 		self.__cur_frame = 0
+		self.__log_list = []
+		self.__rank = []
 
 	def run(self):		
 		dead_enemies = 0
 		while (self.__cur_frame < self.total_frames and dead_enemies < self.enemy_num):
 			for i in range(self.enemy_num):
+				# Append log list if there is no log for the enemy yet
+				if len(self.__log_list) <= i:
+					self.__log_list.append("")
+
 				# Fetch current enemy, player, and simulation
 				sim = self.sim_list[i]
 				player = sim.player
@@ -55,6 +61,7 @@ class Simulator:
 					dist = (dist_x**2 + dist_y**2)
 					if dist < (bomb.rad+enemy.rad)**2:
 						enemy.is_dead = True
+						self.__rank.append(i)
 						dead_enemies += 1
 
 				sim.remove_bombs(removed_bombs)
@@ -75,16 +82,26 @@ class Simulator:
 						log += "\nBomb: (%.3f, %.3f)"%(bomb.pos[0], bomb.pos[1])
 				if enemy.is_dead:
 					log += " -> <DEAD!>"
-				log += "\n===================================="
+				log += "\n====================================\n"
 
-				# Print the log
-				if self.print_log:
-					print(log)
+				self.__log_list[i] += log
 
 			# Increase the frame of the simulator	
 			self.__cur_frame += 1
 
-		# Print the final results
-		print("\nFinal Results: ")
+		# Reverse the rank list (descending order on survival time)
+		self.__rank.reverse()
+
+		# Print the final log
 		for i in range(self.enemy_num):
-			print("%d has survived %.2fseconds"%(i, (self.sim_list[i].get_frame_count()/self.fps)))
+			if self.print_rank == -1 or self.print_rank > i:
+				print(self.__log_list[self.__rank[i]])
+			else:
+				break
+
+		# Print the final results
+		print("Final Results: ")
+		for i in self.__rank:
+			survival_time = self.sim_list[i].get_frame_count()/self.fps
+			bomb_count = self.sim_list[i].player.bomb_count
+			print("%d has survived %.2fseconds | Bomb count: %d"%(i, survival_time, bomb_count))
