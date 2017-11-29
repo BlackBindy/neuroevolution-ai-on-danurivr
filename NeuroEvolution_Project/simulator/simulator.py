@@ -3,7 +3,7 @@ from .player import Player
 from .enemy import Enemy
 
 class Simulator:
-	def __init__(self, total_frames, player_pos, enemy_num, network_size, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_rank=-1):
+	def __init__(self, total_frames, player_pos, enemy_num, network_size, fps=60, play_area=38, stage_rad=30, bomb_area=40, print_rank=0):
 		self.sim_list = [Simulation(i) for i in range(enemy_num)]
 		for sim in self.sim_list:
 			sim.assign_player(Player(sim, player_pos, fps, play_area))
