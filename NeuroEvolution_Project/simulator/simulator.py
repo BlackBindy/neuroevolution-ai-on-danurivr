@@ -115,7 +115,7 @@ class Simulator:
 			survival_time = frame_count/self.fps
 			sum_frame_count += frame_count
 			bomb_count = self.sim_list[i].player.bomb_count
-			print("%d has survived %.2fseconds | Bomb count: %d"%(i, survival_time, bomb_count))
+			print("%3d has survived %6.2fseconds | Bomb count: %3d"%(i, survival_time, bomb_count))
 		print()
 		return sum_frame_count
 

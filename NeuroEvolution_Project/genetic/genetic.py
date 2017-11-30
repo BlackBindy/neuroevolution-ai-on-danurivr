@@ -18,6 +18,8 @@ class GeneticAlgorithm:
 		self.player_start_pos = player_start_pos
 
 	def run(self):
+		best_enemies = []
+
 		# Initialization
 		enemy_list = []
 		for p in range(self.population):
@@ -25,7 +27,9 @@ class GeneticAlgorithm:
 
 		# Loop over generation
 		for g in range(self.generation):
+			print("[Generation #%d]"%(g))
 			simulator, sum_frame_count = self.evaluation(enemy_list)
+			best_enemies.append(simulator.fetch_top_enemies(1)[0])
 			next_gen = []
 
 			# Create offsprings
@@ -51,6 +55,8 @@ class GeneticAlgorithm:
 				enemy_list = []
 				for n in range(self.population):
 					enemy_list.append(Enemy(self.network_size, vec=next_gen[n]))
+
+		return best_enemies
 
 
 	def evaluation(self, enemy_list):
