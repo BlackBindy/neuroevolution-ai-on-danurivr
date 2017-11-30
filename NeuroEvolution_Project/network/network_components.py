@@ -1,9 +1,9 @@
-import random as rd
+from . import numeric_components as num
 
 class Dendrite:
 	def __init__(self, weight=None): # Random value : [0.0, 1.0)
 		if weight == None:
-			self.weight = rd.gauss(0, 1)
+			self.weight = num.get_rand()
 		else:
 			self.weight = weight
 
@@ -11,7 +11,7 @@ class Neuron:
 	def __init__(self, dendrite_list=[], bias=None):
 		self.dendrite_list = dendrite_list
 		if bias == None:
-			self.bias = rd.gauss(0, 1)
+			self.bias = num.get_rand()
 		else:
 			self.bias = bias
 		self.delta = 0

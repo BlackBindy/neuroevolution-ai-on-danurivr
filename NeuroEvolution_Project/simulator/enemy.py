@@ -2,8 +2,8 @@ from network.neural_network import NeuralNetwork
 import math
 
 class Enemy:
-	def __init__(self, network_size, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100):
-		self.nn = NeuralNetwork(network_size, activation=activation)
+	def __init__(self, network_size, vec=None, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100):
+		self.nn = NeuralNetwork(network_size, activation=activation, vec=vec)
 		self.play_area = None
 		self.stage_rad = None
 		self.bomb_area = None

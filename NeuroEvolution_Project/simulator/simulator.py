@@ -92,8 +92,13 @@ class Simulator:
 			# Increase the frame of the simulator	
 			self.__cur_frame += 1
 
+		# All the survivors are added into the rank list
+		for sim in self.sim_list:
+			if sim.enemy.is_dead == False:
+				self.__rank.append(sim.id)
+
 		# Reverse the rank list (descending order on survival time)
-		self.__rank.reverse()
+		self.__rank.reverse()		
 
 		# Print the final log
 		for i in range(self.enemy_num):
@@ -104,10 +109,15 @@ class Simulator:
 
 		# Print the final results
 		print("Final Results: ")
+		sum_frame_count = 0
 		for i in self.__rank:
-			survival_time = self.sim_list[i].get_frame_count()/self.fps
+			frame_count = self.sim_list[i].get_frame_count()
+			survival_time = frame_count/self.fps
+			sum_frame_count += frame_count
 			bomb_count = self.sim_list[i].player.bomb_count
 			print("%d has survived %.2fseconds | Bomb count: %d"%(i, survival_time, bomb_count))
+		print()
+		return sum_frame_count
 
 	def fetch_top_enemies(self, num):
 		if len(self.__rank) == 0:

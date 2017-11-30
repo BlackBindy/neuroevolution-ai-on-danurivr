@@ -1,4 +1,5 @@
 import math
+import random as rd
 
 def sigmoid(x):
 	return 1 / (1 + math.exp(-x))
@@ -12,3 +13,6 @@ def relu(x):
 		return x
 	else:
 		return 0
+
+def get_rand():
+	return rd.gauss(0, 1)
