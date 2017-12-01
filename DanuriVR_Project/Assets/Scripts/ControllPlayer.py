@@ -32,7 +32,6 @@ class ControllPlayer(Actor.Actor):
 		self._pos.z = self._radius * math.sin(math.radians(self._angle))
 		
 		self.cam.FindComponentByType("TransformGroup").SetPosition(self._pos)
-
 		#Camera look at
 		self._targetDir = self.GetLocalDir(self._pos)
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
