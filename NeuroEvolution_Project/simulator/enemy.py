@@ -2,7 +2,7 @@ from network.neural_network import NeuralNetwork
 import math
 
 class Enemy:
-	def __init__(self, network_size, vec=None, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100):
+	def __init__(self, network_size, vec=None, activation='tanh', position=(0, 0), radius=2, max_speed=2, max_bomb_dist=100, use_velocity=True):
 		self.nn = NeuralNetwork(network_size, activation=activation, vec=vec)
 		self.play_area = None
 		self.stage_rad = None
@@ -11,6 +11,7 @@ class Enemy:
 		self.rad = radius
 		self.amplifier = max_speed / math.sqrt(2) # to amplify the speed from [-1, 1] to [-max_speed, max_speed]
 		self.max_bomb_dist = max_bomb_dist
+		self.use_velocity = use_velocity # True: NN result represents velocity, False: NN result represents acceleration
 		self.is_dead = False
 
 		# private		
@@ -77,7 +78,12 @@ class Enemy:
 				v_y += v[1]
 				#print("-------------------------------%.4f, %.4f"%(v[0], v[1]))
 			# Take the average velocity
-			self._vel = (v_x/bomb_num, v_y/bomb_num)
+			if self.use_velocity:
+				self._vel = (v_x/bomb_num, v_y/bomb_num)
+			else:
+				vel0 = max(min(1.0, self._vel[0] + v_x/bomb_num), -1.0)
+				vel1 = max(min(1.0, self._vel[1] + v_y/bomb_num), -1.0)
+				self._vel = (vel0, vel1)
 		else: # If there is no bomb, set the distance as the distance to the player
 			b_x = p_x
 			b_y = p_y
@@ -87,7 +93,12 @@ class Enemy:
 			# b_y = self.max_bomb_dist
 			v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal]) # using from origin
 			# v = self.nn.run([w_x, w_y, p_x, p_y, b_x, b_y]) # using to wall
-			self._vel = (v[0], v[1])
+			if self.use_velocity:
+				self._vel = (v[0], v[1])
+			else:
+				vel0 = max(min(1.0, self._vel[0] + v[0]), -1.0)
+				vel1 = max(min(1.0, self._vel[0] + v[1]), -1.0)
+				self._vel = (vel0, vel1)
 
 		# Move
 		log = "Network Inputs: O (%.3f, %.3f), P (%.3f, %.3f), B (%.3f, %.3f)"%(e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal)

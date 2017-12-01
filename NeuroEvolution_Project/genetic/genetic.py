@@ -4,7 +4,7 @@ from network import numeric_components as num
 import random as rd
 
 class GeneticAlgorithm:
-	def __init__(self, population=10, crossover_prob=0.4, generation=10, mutation_prob=0.001, network_size=[6, 8, 8, 2], total_frames=600, player_start_pos=(0, -38)):
+	def __init__(self, population=10, crossover_prob=0.4, generation=10, mutation_prob=0.001, network_size=[6, 8, 8, 2], total_frames=600, player_start_pos=(0, -38), use_velocity=True):
 		self.population = population
 		if crossover_prob > 1:
 			raise IndexError("Crossover probability can not exceed 1.0")
@@ -16,59 +16,83 @@ class GeneticAlgorithm:
 		self.network_size = network_size
 		self.total_frames = total_frames
 		self.player_start_pos = player_start_pos
+		self.use_velocity = use_velocity
 
-	def run(self):
-		best_enemies = []
+		self.enemy_list = []
+		self.init_enemy_list()
 
-		# Initialization
-		enemy_list = []
-		for p in range(self.population):
-			enemy_list.append(Enemy(self.network_size))
+		self.simulator = None
+		self.init_simulator()
 
+	def run_all(self):
 		# Loop over generation
+		best_enemies = []
 		for g in range(self.generation):
 			print("[Generation #%d]"%(g))
-			simulator, sum_frame_count = self.evaluation(enemy_list)
-			best_enemies.append(simulator.fetch_top_enemies(1)[0])
-			next_gen = []
-
-			# Create offsprings
-			for c in range(self.crossover_num):
-				# Selection
-				parent1 = self.selection(simulator, sum_frame_count)
-				parent2 = self.selection(simulator, sum_frame_count)
-
-				# Crossover
-				offspring = self.crossover(parent1, parent2)
-
-				# Mutation
-				self.mutation(offspring)
-				next_gen.append(offspring)
-
-			# Fill the rest of next gen list with the old parents
-			survivor_num = self.population-self.crossover_num
-			for enemy in simulator.fetch_top_enemies(survivor_num):
-				next_gen.append(enemy.nn.vectorize())
-
-			# Set the new generation as the next enemy list
-			if g < self.generation - 1:
-				enemy_list = []
-				for n in range(self.population):
-					enemy_list.append(Enemy(self.network_size, vec=next_gen[n]))
+			best_enemy = self.run_single_cycle(g)
+			best_enemies.append(best_enemy)
 
 		return best_enemies
 
 
-	def evaluation(self, enemy_list):
-		simulator = Simulator(self.total_frames, self.player_start_pos, enemy_list, print_rank=0)
-		sum_frame_count = simulator.run()
-		return simulator, sum_frame_count
+	def init_enemy_list(self):		
+		for p in range(self.population):
+			self.enemy_list.append(Enemy(self.network_size, use_velocity=self.use_velocity))
+
+
+	def init_simulator(self):
+		self.simulator = Simulator(self.total_frames, self.player_start_pos, self.enemy_list, print_rank=0)
+
+
+	def run_single_cycle(self, g):
+		# Evaluate current generation
+		sum_frame_count = self.evaluation()
+		best_enemy = self.simulator.fetch_top_enemies(1)[0]
+
+		# Get next generation
+		self.get_next_generation(g, sum_frame_count)
+		self.init_simulator()
+
+		# Return the best enemy of the last generation
+		return best_enemy
+
+	def get_next_generation(self, g, sum_frame_count):		
+		next_gen = []
+
+		# Create offsprings
+		for c in range(self.crossover_num):
+			# Selection
+			parent1 = self.selection(sum_frame_count)
+			parent2 = self.selection(sum_frame_count)
+
+			# Crossover
+			offspring = self.crossover(parent1, parent2)
+
+			# Mutation
+			self.mutation(offspring)
+			next_gen.append(offspring)
+
+		# Fill the rest of next gen list with the old parents
+		survivor_num = self.population-self.crossover_num
+		for enemy in self.simulator.fetch_top_enemies(survivor_num):
+			next_gen.append(enemy.nn.vectorize())
+
+		# Set the new generation as the next enemy list
+		if g < self.generation - 1:
+			self.enemy_list = []
+			for n in range(self.population):
+				self.enemy_list.append(Enemy(self.network_size, vec=next_gen[n], use_velocity=self.use_velocity))
+
+
+	def evaluation(self):
+		sum_frame_count = self.simulator.run()
+		return sum_frame_count
 
 	# Roulette Wheel Selection
-	def selection(self, simulator, sum_frame_count):
+	def selection(self, sum_frame_count):
 		sel_point = rd.randrange(sum_frame_count)
 		accum = 0
-		for sim in simulator.sim_list:
+		for sim in self.simulator.sim_list:
 			frame_count = sim.get_frame_count()
 			if(accum <= sel_point and accum + frame_count > sel_point):
 				return sim.enemy.nn.vectorize()
