@@ -5,22 +5,15 @@ from file_manager import *
 path = "model/001.txt"
 network_size = [6, 6, 6, 2] # The size of a neural network
 
-# Run GeneticAlgorithm
-ga = GeneticAlgorithm(population=15, crossover_prob=0.4, generation=50, mutation_prob=0.001, total_frames=3600, network_size=network_size, use_velocity=True)
-best_enemies = ga.run_all()
-
-# Save the best enemy of each generation
-save(path, best_enemies)
-
 # Load the saved file
 best_enemies_loaded = load(path)
 print(len(best_enemies_loaded)) # = number of best enemies = number of generation
 
-# Choose a generation and make an enemy
-generation_num = 10 # 11th generation
+# Choose a generation and create an enemy
+generation_num = 10 # 11th generation (just an arbitrary choice)
 vec = best_enemies_loaded[generation_num] # vec: the weights of the neural network
 enemy = Enemy(network_size, vec=vec)
-enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game
+enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
 
 # Move the enemy
 position1 = enemy.pos

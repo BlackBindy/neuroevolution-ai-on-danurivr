@@ -47,7 +47,7 @@ class GeneticAlgorithm:
 	def run_single_cycle(self, g):
 		# Evaluate current generation
 		sum_frame_count = self.evaluation()
-		best_enemy = self.simulator.fetch_top_enemies(1)[0]
+		best_enemy = self.simulator.fetch_top_enemies(1)[0].nn.vectorize()
 
 		# Get next generation
 		self.get_next_generation(g, sum_frame_count)
