@@ -56,6 +56,9 @@ class DanuriSimulator(Actor.Actor):
 			for sim in self.sim_list:
 				self.is_all_created = self.is_all_created and self.is_on_create_done(sim)
 		else:
+			print("is_done: ", self.__is_done)
+			print("cur_frame: ", self.__cur_frame)
+			print("dead_enemies: ", self.__dead_enemies)
 			if self.__is_done == False and self.__cur_frame < self.total_frames and self.__dead_enemies < self.sim_num:
 				self.__dead_enemies = self.run()
 				self.__cur_frame += 1
@@ -73,23 +76,29 @@ class DanuriSimulator(Actor.Actor):
 
 					# Genetic algorithm
 					sum_frame_count = 0
+					print('123')
 					for sim in self.__rank:
 						sum_frame_count += sim.get_frame()
+						print(sim.get_frame())
 					enemy_list = self.get_next_generation(self.g, sum_frame_count)
 
 					# Start next generation
 					self.g += 1
-					if self.g < self.generation:
-						self.__is_done = False
-						for i in range(len(self.sim_list)):
-							self.__cur_frame = 0
-							self.__dead_enemies = 0
-							sim = self.sim_list[i]
-							sim.enemy_actor.enemy = enemy_list[i]
-							sim.enemy_actor.reset_state()
-							sim.player_actor.reset_state()
-							sim.bomb_con_actor.reset_bomb_list()
-							sim.reset_frame()
+					for i in range(len(self.sim_list)):
+						sim = self.sim_list[i]
+						sim.enemy_actor.assign_enemy(enemy=enemy_list[i])
+						sim.enemy_actor.reset_state()
+						sim.player_actor.reset_state()
+						sim.bomb_con_actor.reset_bomb_list()
+						sim.reset_frame()
+						self.__rank = []
+
+					print("a")
+					#if self.is_enemy_ready():
+					self.__cur_frame = 0
+					self.__dead_enemies = 0
+					self.__is_done = False
+					print("b")
 
 
 
@@ -154,50 +163,6 @@ class DanuriSimulator(Actor.Actor):
 				offspring[i] = num.get_rand()
 
 
-
-		'''
-		def run_all(self):		
-			self.on_simulation = True
-
-			dead_enemies = 0
-			while (self.__cur_frame < self.total_frames and dead_enemies < self.sim_num):
-				dead_enemies = self.run()
-
-			self.on_simulation = False
-		'''
-		# All the survivors are added into the rank list
-		'''
-		for sim in self.sim_list:
-			if sim.enemy.is_dead == False:
-				self.__rank.append(sim.id)
-		'''
-
-		# Reverse the rank list (descending order on survival time)
-		'''
-		self.__rank.reverse()		
-
-		# Print the final log
-		for i in range(self.sim_num):
-			if self.print_rank == -1 or self.print_rank > i:
-				print(self.__log_list[self.__rank[i]])
-			else:
-				break
-		'''
-
-		# Print the final results
-		'''
-		print("Final Results: ")
-		sum_frame_count = 0
-		for i in self.__rank:
-			frame_count = self.sim_list[i].get_frame_count()
-			survival_time = frame_count/self.fps
-			sum_frame_count += frame_count
-			bomb_count = self.sim_list[i].player.bomb_count
-			print("%3d has survived %6.2fseconds | Bomb count: %3d"%(i, survival_time, bomb_count))
-		print()
-		return sum_frame_count
-		'''
-
 	def run(self):
 		dead_enemies = 0
 
@@ -232,4 +197,10 @@ class DanuriSimulator(Actor.Actor):
 			print("enemy:",sim.enemy_actor.is_created)
 			result = sim.player_actor.is_created & sim.enemy_actor.is_created
 			#print("result:", result)
+		return result
+
+	def is_enemy_ready(self):
+		result = True
+		for sim in self.sim_list:
+			result = result and sim.enemy_actor.enemy.is_assigned
 		return result

@@ -24,9 +24,8 @@ class DanuriLearningEnemy(Actor.Actor):
 		self._init_pos = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition()
 		self.pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
 
-		network_size = [8, 8, 6, 6]
-		self.enemy = Enemy(network_size)
-		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
+		self.network_size = [8, 8, 6, 6]
+		self.assign_enemy()
 		self.is_created = True
 
 
@@ -55,6 +54,15 @@ class DanuriLearningEnemy(Actor.Actor):
 	def change_show(self, value):
 		self.danuri_enemy.PropInstance.SetShow(value)
 
+	def assign_enemy(self, enemy=None):
+		if enemy == None:
+			self.enemy = Enemy(self.network_size)
+		else:
+			self.enemy = enemy
+			print("yea")
+		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
+
 	def reset_state(self):
 		self.change_show(1)
+		self.is_dead = False
 		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self._init_pos)	
