@@ -38,7 +38,6 @@ class DanuriLearningEnemy(Actor.Actor):
 			
 		danuri_palyer_pos = self.danuri_palyer.FindComponentByType("TransformGroup").GetPosition()
 		danuri_palyer_pos = (danuri_palyer_pos.x, danuri_palyer_pos.z)
-		#print(danuri_palyer_pos)
 		self.move(danuri_palyer_pos)
 
 
@@ -59,7 +58,6 @@ class DanuriLearningEnemy(Actor.Actor):
 			self.enemy = Enemy(self.network_size)
 		else:
 			self.enemy = enemy
-			print("yea")
 		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
 
 	def reset_state(self):

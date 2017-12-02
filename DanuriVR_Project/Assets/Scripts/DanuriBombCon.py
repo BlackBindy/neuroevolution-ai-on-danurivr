@@ -16,9 +16,6 @@ class DanuriBombCon(Actor.Actor):
 		self._ballR = 0.5;
 		self._distance = self._enemyR + self._ballR
 		self._bomb_area = 40
-		#print(uid)
-        #self.UID = uid
-		#print(self.container)
 		return 0
 
 	def Update(self):
