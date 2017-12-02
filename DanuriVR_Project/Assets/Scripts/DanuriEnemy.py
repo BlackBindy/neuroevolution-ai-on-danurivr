@@ -36,7 +36,10 @@ class DanuriEnemy(Actor.Actor):
 		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
 
 
-	def Update(self):
+	def Update(self):		
+		if self.enemy.is_dead == True:
+			return 0
+			
 		danuri_palyer_pos = self.danuri_palyer.FindComponentByType("TransformGroup").GetPosition()
 		danuri_palyer_pos = (danuri_palyer_pos.x, danuri_palyer_pos.z)
 		#print(danuri_palyer_pos)

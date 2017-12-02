@@ -8,6 +8,9 @@ class DanuriBombCon(Actor.Actor):
 		return
 
 	def OnCreate(self, uid):
+		self.enemy_script = self.enemy.FindComponentByType("ScriptComponent")
+		self.enemy_actor = self.enemy_script.GetActor()
+
 		self._enemyR = 2.0;
 		self._ballR = 0.5;
 		self._distance = self._enemyR + self._ballR
@@ -18,6 +21,9 @@ class DanuriBombCon(Actor.Actor):
 		return 0
 
 	def Update(self):
+		if self.enemy_actor.enemy.is_dead == True:
+			return 0
+
 		next_bomb_list = []
 
 		for bomb in self.danuri_bomb_list:
@@ -30,6 +36,7 @@ class DanuriBombCon(Actor.Actor):
 			#check collision
 			new_pos = obj.FindComponentByType("TransformGroup").GetPosition()
 			if Getdistance(new_pos, self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance:
+				self.enemy_actor.enemy.is_dead = True
 				print("Collision!")
 			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:
 				print("Out of stage!")
@@ -39,6 +46,9 @@ class DanuriBombCon(Actor.Actor):
 		self.danuri_bomb_list = next_bomb_list
 
 	def AddDanuriBomb(self, container, pos, direction):
+		if self.enemy_actor.enemy.is_dead == True:
+			return 0
+			
 		new_bomb = container.LoadPrefab("$project/Assets/Bomb.prefab")
 		new_bomb.PropInstance.SetShow(True)
 		new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
