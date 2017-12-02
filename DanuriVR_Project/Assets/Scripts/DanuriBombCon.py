@@ -22,6 +22,9 @@ class DanuriBombCon(Actor.Actor):
 		return 0
 
 	def Update(self):
+		if self.enemy_actor.is_created == False:
+			return 0
+
 		if self.enemy_actor.enemy.is_dead == True:
 			return 0
 

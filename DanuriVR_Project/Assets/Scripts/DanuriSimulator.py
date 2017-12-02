@@ -28,8 +28,9 @@ class DanuriSimulator(Actor.Actor):
 
 	def Update(self):
 		if self.is_all_created == False:
+			self.is_all_created = True
 			for sim in self.sim_list:
-				self.is_all_created = self.is_on_create_done(sim)
+				self.is_all_created = self.is_all_created and self.is_on_create_done(sim)
 		else:
 			self.run()
 
@@ -127,8 +128,8 @@ class DanuriSimulator(Actor.Actor):
 	def is_on_create_done(self, sim):
 		result = False
 		if sim.is_created == True:
-			#print("player:",sim.player_actor.is_created)
-			#print("enemy:",sim.enemy_actor.is_created)
-			result = sim.player_actor.is_created and sim.enemy_actor.is_created
+			print("player:",sim.player_actor.is_created)
+			print("enemy:",sim.enemy_actor.is_created)
+			result = sim.player_actor.is_created & sim.enemy_actor.is_created
 			#print("result:", result)
 		return result

@@ -8,9 +8,6 @@ class DanuriSimulation(Actor.Actor):
 		self.player = Container(0)
 		self.bomb_con = Container(0)
 
-		self.enemy_actor = None
-		self.player_actor = None
-
 		self._frame_count = 0
 		self.is_created = False
 
