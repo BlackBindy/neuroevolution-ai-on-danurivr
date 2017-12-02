@@ -6,12 +6,14 @@ path = "model/001.txt"
 network_size = [6, 6, 6, 2] # The size of a neural network
 
 # Load the saved file
-best_enemies_loaded = load(path)
-print(len(best_enemies_loaded)) # = number of best enemies = number of generation
+result = load(path)
+print(len(result)) # = number of best enemies + 1 = number of generation + 1
 
 # Choose a generation and create an enemy
 generation_num = 10 # 11th generation (just an arbitrary choice)
-vec = best_enemies_loaded[generation_num] # vec: the weights of the neural network
+network_size = result[0]
+vec = result[1] # vec: the weights of the neural network
+
 enemy = Enemy(network_size, vec=vec)
 enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
 

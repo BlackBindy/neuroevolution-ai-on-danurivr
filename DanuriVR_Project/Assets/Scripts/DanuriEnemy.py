@@ -24,14 +24,16 @@ class DanuriEnemy(Actor.Actor):
 		self._pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
 
 		path = EngineFileTool.GetProjectPath() + "/Assets/Scripts" + "/model/" + self.file_name + ".txt"
-		network_size = [6, 6, 6, 2] # The size of a neural network
 
 		# Load the saved file
-		best_enemies_loaded = load(path)
-		print(len(best_enemies_loaded)) # = number of best enemies = number of generation
+		result = load(path)
+		network_size = result[0]
+		best_enemies = result[1:]
+		print(len(result))
+		print(len(best_enemies)) # = number of best enemies = number of generation
 
 		# Choose a generation and create an enemy
-		vec = best_enemies_loaded[self.generation_num] # vec: the weights of the neural network
+		vec = best_enemies[self.generation_num] # vec: the weights of the neural network
 		self.enemy = Enemy(network_size, vec=vec)
 		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
 

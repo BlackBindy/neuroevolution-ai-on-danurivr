@@ -1,10 +1,11 @@
 import pickle
 
-def save(path, best_enemies):	
+def save(path, newtork_size, best_enemies):	
+	result = [newtork_size] + best_enemies
 	with open(path, "wb") as fp:   #Pickling
-		pickle.dump(best_enemies, fp)
+		pickle.dump(result, fp)
 
 def load(path):
 	with open(path, "rb") as fp:   # Unpickling
-		best_enemies = pickle.load(fp)
-	return best_enemies
+		result = pickle.load(fp)
+	return result

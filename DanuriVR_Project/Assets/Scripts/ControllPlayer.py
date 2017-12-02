@@ -1,8 +1,6 @@
 import math
 import Math3d
 import sys
-sys.path.insert(0, EngineFileTool.GetProjectPath() + '/Assets/Scripts')
-from simulator.bomb import Bomb
 
 class ControllPlayer(Actor.Actor):
 	def __init__(self):
@@ -12,8 +10,6 @@ class ControllPlayer(Actor.Actor):
 
 		self._pos = Math3d.Vector3(0)
 		self._targetDir = Math3d.Vector3(0)
-		#self._bombList = [];
-		#self._bomb_dirList = [];
 
 	def OnCreate(self, uid):
 		self._radius = 38
@@ -30,7 +26,6 @@ class ControllPlayer(Actor.Actor):
 		self.bomb_con.AddNewComponent("TransformGroup")
 		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")
 		self.bomb_con_actor = self.bomb_con_script.GetActor()
-		print(len(self.bomb_con_actor.danuri_bomb_list))
 		return 0
 
 	def Update(self):
@@ -42,12 +37,6 @@ class ControllPlayer(Actor.Actor):
 		#Camera look at
 		self._targetDir = self.GetLocalDir(self._pos)
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
-
-		#check collision
-		#for i in range(len(self._bombList)):
-		#	if(Getdistance(self._bombList[i].FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
-		#		print("Collision!")
-
 
 		return 0
 
@@ -85,46 +74,10 @@ class ControllPlayer(Actor.Actor):
 		return v
 
 	def Shoot(self, direction, pos):
-		#save target direction
 		direction.Normalize()
-		#self._bomb_dirList.append(direction)
-
-		#load prefab
 		self.bomb_con_actor.AddDanuriBomb(pos, direction)
-		print(len(self.bomb_con_actor.danuri_bomb_list))
-		#component = new_bomb.FindComponentByType("ScriptComponent")
-		#print(type(component.GetActor()))
-		#actor = component.GetActor()
-		#print(type(new_bomb))
-		#print(type(actor))
-		#create bomb
-		#new_bomb.PropInstance.SetShow(True)
-		#new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
-		#temp_pos = (pos.x, pos.z)
-		#temp_dir = (direction.x, direction.z)
-		#new_bomb.FindComponentByType("ScriptComponent").GetActor()#.init_bomb(new_bomb, temp_pos, temp_dir)
-		#self._bombList.append(new_bomb)
-
-		#self._bombCount += 1
 
 def Getdistance(v1, v2):
 	distance = float(0)
 	distance = math.sqrt(math.pow(v1.x-v2.x, 2) + math.pow(v1.y-v2.y, 2) + math.pow(v1.z-v2.z, 2))
 	return distance
-'''
-	def get_bomb_list():
-		bomb_list = []
-		for i in range(len(self._bombList)):
-			bomb_pos = self._bombList[i].FindComponentByType("TransformGroup").GetPosition()
-			bomb_pos = ()
-
-		#shoot ball
-		for i in range(len(self._bombList)):
-			bompos = self._bombList[i].FindComponentByType("TransformGroup").GetPosition()
-			self._bombList[i].FindComponentByType("TransformGroup").SetPosition(bompos + self._bomb_dirList[i])
-
-		#check collision
-		for i in range(len(self._bombList)):
-			if(Getdistance(self._bombList[i].FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
-				print("Collision!")		
-'''

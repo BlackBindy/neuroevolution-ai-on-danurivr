@@ -10,7 +10,7 @@ ga = GeneticAlgorithm(population=15, crossover_prob=0.4, generation=50, mutation
 best_enemies = ga.run_all()
 
 # Save the best enemy of each generation
-save(path, best_enemies)
+save(path, network_size, best_enemies)
 
 # Load the saved file
 best_enemies_loaded = load(path)
