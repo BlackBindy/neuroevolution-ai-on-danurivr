@@ -23,9 +23,9 @@ class Simulator:
 				# Append log list if there is no log for the enemy yet
 
 				# Fetch current enemy, player, and simulation
-				sim = self.sim_list[i].sim
-				player = sim.player_actor.player
-				enemy = sim.enemy_actor.enemy
+				sim = self.sim_list[i]
+				player = sim.player
+				enemy = sim.enemy
 
 				# If cur enemy is already dead, no simulation is proceeded
 				if enemy.is_dead:

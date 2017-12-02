@@ -11,8 +11,10 @@ class DanuriLearningEnemy(Actor.Actor):
 		self.danuri_enemy = Container(0)
 		self.danuri_palyer = Container(0)
 		self.bomb_con = Container(0)
-		self._pos = Math3d.Vector3(0)
+		self.pos = Math3d.Vector3(0)
 		self.enemy = None
+		self.is_dead = False
+		self.is_created = False
 
 
 	def OnCreate(self, uid):
@@ -20,17 +22,19 @@ class DanuriLearningEnemy(Actor.Actor):
 		self.bomb_con_actor = self.bomb_con_script.GetActor()
 
 		self._init_pos = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition()
-		self._pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
+		self.pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
 
 		network_size = [8, 8, 6, 6]
 		self.enemy = Enemy(network_size)
 		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
+		self.is_created = True
 
 
 	def Update(self):
 		if self.enemy == None:
 			return 0
-		elif self.enemy.is_dead == True:			
+		elif self.enemy.is_dead == True:
+			self.is_dead = True	
 			return 0
 			
 		danuri_palyer_pos = self.danuri_palyer.FindComponentByType("TransformGroup").GetPosition()
@@ -44,6 +48,6 @@ class DanuriLearningEnemy(Actor.Actor):
 		self.enemy.move(bomb_list, player_pos)
 
 		# move danuri enemy
-		self._pos.x = self.enemy.pos[0]
-		self._pos.z = self.enemy.pos[1]
-		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self._pos)
+		self.pos.x = self.enemy.pos[0]
+		self.pos.z = self.enemy.pos[1]
+		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self.pos)

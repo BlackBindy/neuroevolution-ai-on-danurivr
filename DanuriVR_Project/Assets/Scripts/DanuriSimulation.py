@@ -8,25 +8,21 @@ class DanuriSimulation(Actor.Actor):
 		self.player = Container(0)
 		self.bomb_con = Container(0)
 
-		id = 1
-		self.sim = Simulation(id)
+		self.enemy_actor = None
+		self.player_actor = None
 
 		self._frame_count = 0
+		self.is_created = False
 
 	def OnCreate(self, uid):
 		self.enemy_script = self.enemy.FindComponentByType("ScriptComponent")
 		self.enemy_actor = self.enemy_script.GetActor()
-
 		self.player_script = self.player.FindComponentByType("ScriptComponent")
 		self.player_actor = self.player_script.GetActor()
 		
 		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")
 		self.bomb_con_actor = self.bomb_con_script.GetActor()
-
-		print(self.sim.id)
-		print(self.sim.player)
-		self.sim.assign_enemy(self.enemy_actor.enemy)
-		self.sim.assign_player(self.player_actor.player)
+		self.is_created = True
 
 	def increase_frame(self):
 		self._frame_count += 1
