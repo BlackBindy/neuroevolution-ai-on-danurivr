@@ -41,6 +41,7 @@ class DanuriBombCon(Actor.Actor):
 			new_pos = obj.FindComponentByType("TransformGroup").GetPosition()
 			if Getdistance(new_pos, self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance:
 				self.enemy_actor.enemy.is_dead = True
+				self.enemy_actor.change_show(0)
 				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
 				print("Collision!")
 			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:

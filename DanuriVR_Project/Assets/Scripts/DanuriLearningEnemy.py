@@ -51,3 +51,6 @@ class DanuriLearningEnemy(Actor.Actor):
 		self.pos.x = self.enemy.pos[0]
 		self.pos.z = self.enemy.pos[1]
 		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self.pos)
+
+	def change_show(self, value):
+		self.danuri_enemy.PropInstance.SetShow(value)

@@ -16,21 +16,21 @@ Shader Build Finished.
 Report Uniform Parameter 
   Vertex Shader (Background) 
   Pixel Shader (Background) 
-    CameraPos : Index=7 Type=float4 Value=5.0,2.0,5.0,0.0
-    ViewProjInverse : Index=0 Type=float4x4 Value=-0.55235136,-0.08326699,-99.99729156,99.31938171,-0.0,0.41633254,-39.998909,39.72775269,0.55234897,-0.08326618,-99.99729156,99.31938171,-0.0,0.0,-19.99945831,19.99995995
     CameraDir : Index=6 Type=float4 Value=-0.68041384,-0.2721656,-0.68041378,0.0
-    ViewProj : Index=1 Type=float4x4 Value=-0.90522695,0.0,0.90522695,0.0,-0.44480065,2.22400308,-0.44480065,0.00000055,-0.68043083,-0.27217239,-0.68043083,7.2986517,-0.68041378,-0.27216557,-0.68041378,7.34846878
     FarPlane : Index=9 Type=float4 Value=2000.0,0.0,0.0,0.0
-    BackgroundSunMatrix : Index=10 Type=float4x4 Value=-0.70710671,0.0,-0.70710689,-0.0,-0.40824839,0.81649655,0.40824828,-0.0,0.57735032,0.57735032,-0.5773502,-0.0,0.0,0.0,0.0,1.0
+    CameraPos : Index=7 Type=float4 Value=5.0,2.0,5.0,0.0
+    ViewProj : Index=1 Type=float4x4 Value=-0.90522695,0.0,0.90522695,0.0,-0.44480065,2.22400308,-0.44480065,0.00000055,-0.68043083,-0.27217239,-0.68043083,7.2986517,-0.68041378,-0.27216557,-0.68041378,7.34846878
+    ViewProjInverse : Index=0 Type=float4x4 Value=-0.55235136,-0.08326699,-99.99729156,99.31938171,-0.0,0.41633254,-39.998909,39.72775269,0.55234897,-0.08326618,-99.99729156,99.31938171,-0.0,0.0,-19.99945831,19.99995995
     BackgroundSunSize : Index=11 Type=float4 Value=0.05,0.05,0.05,0.0
-    BackgroundType : Index=2 Type=float4 Value=2.0,0.0,0.0,0.0
+    BackgroundSunMatrix : Index=10 Type=float4x4 Value=-0.70710671,0.0,-0.70710689,-0.0,-0.40824839,0.81649655,0.40824828,-0.0,0.57735032,0.57735032,-0.5773502,-0.0,0.0,0.0,0.0,1.0
     GridInfo : Index=8 Type=float4 Value=2.0,0.5,0.0,0.0
-    DrawGrid : Index=4 Type=float4 Value=0.0,0.0,0.0,0.0
     BackColor : Index=5 Type=float4 Value=0.1,0.1,0.2,1.0
     Orthographic : Index=3 Type=float4 Value=0.0,0.0,0.0,0.0
+    DrawGrid : Index=4 Type=float4 Value=0.0,0.0,0.0,0.0
+    BackgroundType : Index=2 Type=float4 Value=2.0,0.0,0.0,0.0
     BackgroundGamma : Index=14 Type=float4 Value=1.0,0.0,0.0,0.0
-    BackgroundMipMapInfo : Index=13 Type=float4 Value=1.0,0.0,11.0,0.0
     EnvMapProjection : Index=12 Type=float4 Value=3.0,1.0,0.0,11.0
+    BackgroundMipMapInfo : Index=13 Type=float4 Value=1.0,0.0,11.0,0.0
 Compile Shaders ... DefaultFrame - TestFrameRed
 Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
 Resource::Shader Compile Error TestFrameRed
@@ -60,35 +60,91 @@ Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
 Rebuilding Tangent Space for 2431 Polygons
 Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
 Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
 Loading Actor Python $project/Assets/Scripts/DanuriSimulator.py
 Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Rebuilding Tangent Space for 2431 Polygons
 Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Rebuilding Tangent Space for 2431 Polygons
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
 Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
 Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
 Rebuilding Tangent Space for 128 Polygons
 Loading Actor Python $project/Assets/Scripts/DanuriSimulator.py
 Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Rebuilding Tangent Space for 2431 Polygons
 Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Rebuilding Tangent Space for 2431 Polygons
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
+Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
 Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
 Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
 Report Uniform Parameter 
   Vertex Shader (Default) 
     Proj : Index=4 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,0.0,0.0,0.0,1.00002503,-0.05000125,0.0,0.0...
     View : Index=3 Type=float4x4 Value=1.0,0.0,-0.0,-0.0,0.0,0.00000006,1.0,-0.00000596,0.0,-1.0,0.00000006,100.0,0.0,0.0...
-    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
-    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
     ShadowMapInfo2 : Index=15 Type=float4 Value=0.001,1.0,0.0,0.0
     MatrixPalette : Index=18 Type=float4x4 Value= <Not Assigned>
-    SunLight : Index=6 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
+    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
+    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
     CameraPos : Index=5 Type=float4 Value=0.0,100.0,0.0,0.0
+    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
+    SunLight : Index=6 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
     ViewProj : Index=0 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,0.00000014,2.31125164,-0.00001378,0.0,-1.00002503,0.00000006...
-    WorldInverse : Index=2 Type=float4x4 Value=1.0,-0.0,0.0,1.35942972,-0.0,1.0,-0.0,-2.0,0.0,-0.0,1.0,1.40036726,-0.0,0.0,-0.0,1.0...
-    World : Index=1 Type=float4x4 Value=1.0,0.0,0.0,-1.35942972,0.0,1.0,0.0,2.0,0.0,0.0,1.0,-1.40036726,0.0,0.0,0.0,1.0
+    WorldInverse : Index=2 Type=float4x4 Value=1.0,-0.0,0.0,-1.40802789,-0.0,1.0,-0.0,-2.0,0.0,-0.0,1.0,0.15982746,-0.0,0.0,-0.0...
+    World : Index=1 Type=float4x4 Value=1.0,0.0,0.0,1.40802789,0.0,1.0,0.0,2.0,0.0,0.0,1.0,-0.15982746,0.0,0.0,0.0,1.0
     UVInfo : Index=16 Type=float4 Value=0.0,0.0,1.0,1.0
     UseMatrixPalette : Index=17 Type=float4 Value=0.0,0.0,0.0,0.0
   Pixel Shader (Default) 
@@ -97,46 +153,45 @@ Report Uniform Parameter
     MaterialSpecular : Index=11 Type=float4 Value=0.2,0.0,0.0,0.0
     AmbientColorRate : Index=14 Type=float4 Value=0.0,0.0,0.0,0.0
     NormalMapDirection : Index=25 Type=float4 Value=1.0,1.0,1.0,1.0
+    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
     ShadowInfo : Index=2 Type=float4 Value=0.5,1.0,1.0,0.0
     ShadowMapInfo : Index=3 Type=float4 Value=0.0,0.05,0.0,1.0
-    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
+    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
+    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
     SoftShadowInfo3 : Index=7 Type=float4 Value= <Not Assigned>
     Glossiness : Index=15 Type=float4 Value=0.0,0.0,0.0,0.0
     SoftShadowInfo : Index=5 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
     StaticSoftShadowInfo : Index=9 Type=float4 Value= <Not Assigned>
-    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
     ClipPlane : Index=1 Type=float4 Value=0.0,0.0,0.0,340282346638528859811704183484516925440.0
-    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
-    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
-    SunLight : Index=24 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
-    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
     CameraPos : Index=16 Type=float4 Value=0.0,100.0,0.0,0.0
+    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
+    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
     FogFactor : Index=22 Type=float4 Value=0.0,0.0,100.0,0.0
+    SunLight : Index=24 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
+    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
+    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
+    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
     FocusingDistance : Index=37 Type=float4 Value=5.0,0.0,0.0,0.0
-    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
-    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
     FarClamp : Index=38 Type=float4 Value=1.0,0.0,0.0,0.0
-    LightFactor : Index=18 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
     DOFEnable : Index=39 Type=float4 Value=0.0,0.0,0.0,0.0
+    LightFactor : Index=18 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
     LightFactorSpotFactor : Index=20 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
     LightColor : Index=17 Type=float4 Value=1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
     FogColor : Index=23 Type=float4 Value=1.0,1.0,1.0,1.0
     ShadingModel : Index=26 Type=float4 Value=0.0,0.0,0.0,0.0
-    DiffuseColor : Index=27 Type=float4 Value=0.0,0.0,0.0,0.0
-    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
+    DiffuseColor : Index=27 Type=float4 Value=0.19607843,0.80392158,0.19607843,1.0
     FocalDistance : Index=33 Type=float4 Value= <Not Assigned>
-    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
+    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
     EnvMapProjection : Index=31 Type=float4 Value=3.0,1.0,0.0,11.0
+    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
+    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
     TextureUVTransform : Index=32 Type=float4 Value=0.0,0.0,1.0,1.0
 Open Texture Gizmo.jpg
 CreateTexture2D11 - w = 128, h = 128, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Rebuilding Tangent Space for 2431 Polygons
 Rebuilding Tangent Space for 2431 Polygons
-CullStatus 3 / 8 / 0 / 8 / 0 (Pass/Visible/Box/Check/Occlusion)
-Rebuilding Tangent Space for 2431 Polygons
-Rebuilding Tangent Space for 2431 Polygons
+CullStatus 14 / 27 / 0 / 28 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 6 / 19 / 0 / 24 / 0 (Pass/Visible/Box/Check/Occlusion)

@@ -5,7 +5,11 @@ from simulator.enemy import Enemy
 
 class DanuriSimulator(Actor.Actor):
 	def __init__(self):
-		self.sim = Container(0)
+		self.sim1 = Container(0)
+		self.sim2 = Container(0)
+		self.sim3 = Container(0)
+		self.sim4 = Container(0)
+		self.sim5 = Container(0)
 		self.total_frames = 600
 		self.fps = 60
 		self.play_area = 38
@@ -18,10 +22,18 @@ class DanuriSimulator(Actor.Actor):
 
 
 	def OnCreate(self, uid):
-		self.sim_script = self.sim.FindComponentByType("ScriptComponent")
-		self.sim_actor = self.sim_script.GetActor()
+		self.sim1_script = self.sim1.FindComponentByType("ScriptComponent")
+		self.sim1_actor = self.sim1_script.GetActor()
+		self.sim2_script = self.sim2.FindComponentByType("ScriptComponent")
+		self.sim2_actor = self.sim2_script.GetActor()
+		self.sim3_script = self.sim3.FindComponentByType("ScriptComponent")
+		self.sim3_actor = self.sim3_script.GetActor()
+		self.sim4_script = self.sim4.FindComponentByType("ScriptComponent")
+		self.sim4_actor = self.sim4_script.GetActor()
+		self.sim5_script = self.sim5.FindComponentByType("ScriptComponent")
+		self.sim5_actor = self.sim5_script.GetActor()
 
-		self.sim_list = [self.sim_actor]
+		self.sim_list = [self.sim1_actor, self.sim2_actor, self.sim3_actor, self.sim4_actor, self.sim5_actor]
 		self.sim_num = len(self.sim_list)
 		self.is_all_created = False
 
