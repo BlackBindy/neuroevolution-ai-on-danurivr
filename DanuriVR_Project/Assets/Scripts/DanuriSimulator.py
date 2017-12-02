@@ -1,7 +1,9 @@
+import random as rd
 import sys
 sys.path.insert(0, EngineFileTool.GetProjectPath() + '/Assets/Scripts')
 from simulator.simulator import Simulator
 from simulator.enemy import Enemy
+import network.numeric_components as num
 
 class DanuriSimulator(Actor.Actor):
 	def __init__(self):
@@ -21,6 +23,14 @@ class DanuriSimulator(Actor.Actor):
 		self.__rank = []
 		self.__dead_enemies = 0
 		self.__is_done = False
+
+		# Genetic algorithm
+		self.network_size = [8, 8, 6, 6]
+		self.generation = 10
+		self.population = 5
+		self.crossover_num = 2
+		self.mutation_prob = 0.001
+		self.g = 0
 
 
 	def OnCreate(self, uid):
@@ -62,7 +72,75 @@ class DanuriSimulator(Actor.Actor):
 					self.__rank.reverse()
 
 					# Genetic algorithm
-					print(len(self.__rank))
+					sum_frame_count = 0
+					for sim in self.__rank:
+						sum_frame_count += sim.get_frame()
+					enemy_list = self.get_next_generation(self.g, sum_frame_count)
+					print(len(enemy_list))
+
+					self.g += 1
+
+
+
+
+	def get_next_generation(self, g, sum_frame_count):		
+		next_gen = []
+
+		# Create offsprings
+		for c in range(self.crossover_num):
+			# Selection
+			parent1 = self.selection(sum_frame_count)
+			parent2 = self.selection(sum_frame_count)
+
+			# Crossover
+			offspring = self.crossover(parent1, parent2)
+
+			# Mutation
+			self.mutation(offspring)
+			next_gen.append(offspring)
+
+		# Fill the rest of next gen list with the old parents
+		survivor_num = self.population-self.crossover_num
+		for sim in self.__rank[:survivor_num]:
+			next_gen.append(sim.enemy_actor.enemy.nn.vectorize())
+
+		# Set the new generation as the next enemy list
+		enemy_list = []
+		if g < self.generation - 1:
+			for n in range(self.population):
+				enemy_list.append(Enemy(self.network_size, vec=next_gen[n]))
+		return enemy_list
+
+	# Roulette Wheel Selection
+	def selection(self, sum_frame_count):
+		sel_point = rd.randrange(sum_frame_count)
+		accum = 0
+		for sim in self.__rank:
+			frame_count = sim.get_frame()
+			if(accum <= sel_point and accum + frame_count > sel_point):
+				return sim.enemy_actor.enemy.nn.vectorize()
+			accum += frame_count
+
+		return sim.enemy_actor.enemy.nn.vectorize()
+
+	# Single-point Crossover
+	def crossover(self, parent1, parent2):
+		length = len(parent1)
+		offspring = []
+		crossover_point = rd.randrange(length-1) # [0, length-2]
+		for i in range(length):
+			if i <= crossover_point:
+				offspring.append(parent1[i])
+			else:
+				offspring.append(parent2[i])
+
+		return offspring
+
+
+	def mutation(self, offspring):
+		for i in range(len(offspring)):
+			if rd.random() <= self.mutation_prob:
+				offspring[i] = num.get_rand()
 
 
 
@@ -127,6 +205,7 @@ class DanuriSimulator(Actor.Actor):
 
 			# Move the player, it will shoot a bomb randomly
 			player.move(enemy.pos)
+			sim.increase_frame()
 
 		return dead_enemies
 
