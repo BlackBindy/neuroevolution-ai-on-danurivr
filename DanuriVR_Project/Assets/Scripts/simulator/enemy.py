@@ -75,7 +75,7 @@ class Enemy:
 					b_y = b_d
 				b_x_normal = b_x / b_max_dist
 				b_y_normal = b_y / b_max_dist
-				v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal])
+				v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal, bomb[1].x, bomb[1].z])
 				v_x += v[0]
 				v_y += v[1]
 				#print("-------------------------------%.4f, %.4f"%(v[0], v[1]))
@@ -93,7 +93,7 @@ class Enemy:
 			b_y_normal = b_y / b_max_dist
 			# b_x = self.max_bomb_dist
 			# b_y = self.max_bomb_dist
-			v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal]) # using from origin
+			v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal, 0, 0]) # using from origin
 			# v = self.nn.run([w_x, w_y, p_x, p_y, b_x, b_y]) # using to wall
 			if self.use_velocity:
 				self._vel = (v[0], v[1])
