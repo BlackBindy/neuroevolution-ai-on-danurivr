@@ -12,8 +12,8 @@ class ControllPlayer(Actor.Actor):
 
 		self._pos = Math3d.Vector3(0)
 		self._targetDir = Math3d.Vector3(0)
-		self._bombList = [];
-		self._bomb_dirList = [];
+		#self._bombList = [];
+		#self._bomb_dirList = [];
 
 	def OnCreate(self, uid):
 		self._radius = 38
@@ -28,6 +28,9 @@ class ControllPlayer(Actor.Actor):
 		self._ballR = 0.5;
 		self._distance = self._enemyR + self._ballR
 		self.bomb_con.AddNewComponent("TransformGroup")
+		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")
+		self.bomb_con_actor = self.bomb_con_script.GetActor()
+		print(len(self.bomb_con_actor.danuri_bomb_list))
 		return 0
 
 	def Update(self):
@@ -41,9 +44,9 @@ class ControllPlayer(Actor.Actor):
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
 
 		#check collision
-		for i in range(len(self._bombList)):
-			if(Getdistance(self._bombList[i].FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
-				print("Collision!")
+		#for i in range(len(self._bombList)):
+		#	if(Getdistance(self._bombList[i].FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
+		#		print("Collision!")
 
 
 		return 0
@@ -84,12 +87,13 @@ class ControllPlayer(Actor.Actor):
 	def Shoot(self, direction, pos):
 		#save target direction
 		direction.Normalize()
-		self._bomb_dirList.append(direction)
+		#self._bomb_dirList.append(direction)
 
 		#load prefab
-		new_bomb = self.bomb_con.LoadPrefab("$project/Assets/Bomb.prefab")
-		component = new_bomb.FindComponentByType("ScriptComponent")
-		print(type(component.GetActor()))
+		self.bomb_con_actor.AddDanuriBomb(self.bomb_con, pos, direction)
+		print(len(self.bomb_con_actor.danuri_bomb_list))
+		#component = new_bomb.FindComponentByType("ScriptComponent")
+		#print(type(component.GetActor()))
 		#actor = component.GetActor()
 		#print(type(new_bomb))
 		#print(type(actor))
@@ -99,9 +103,9 @@ class ControllPlayer(Actor.Actor):
 		#temp_pos = (pos.x, pos.z)
 		#temp_dir = (direction.x, direction.z)
 		#new_bomb.FindComponentByType("ScriptComponent").GetActor()#.init_bomb(new_bomb, temp_pos, temp_dir)
-		self._bombList.append(new_bomb)
+		#self._bombList.append(new_bomb)
 
-		self._bombCount += 1
+		#self._bombCount += 1
 
 def Getdistance(v1, v2):
 	distance = float(0)
