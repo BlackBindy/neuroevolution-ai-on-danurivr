@@ -90,7 +90,7 @@ class ControllPlayer(Actor.Actor):
 		#self._bomb_dirList.append(direction)
 
 		#load prefab
-		self.bomb_con_actor.AddDanuriBomb(self.bomb_con, pos, direction)
+		self.bomb_con_actor.AddDanuriBomb(pos, direction)
 		print(len(self.bomb_con_actor.danuri_bomb_list))
 		#component = new_bomb.FindComponentByType("ScriptComponent")
 		#print(type(component.GetActor()))

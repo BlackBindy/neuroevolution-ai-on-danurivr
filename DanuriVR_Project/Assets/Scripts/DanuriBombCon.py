@@ -4,6 +4,7 @@ import Math3d
 class DanuriBombCon(Actor.Actor):
 	def __init__(self):
 		self.enemy = Container(0)
+		self.danuri_bomb_con = Container(0)
 		self.danuri_bomb_list = []
 		return
 
@@ -37,19 +38,21 @@ class DanuriBombCon(Actor.Actor):
 			new_pos = obj.FindComponentByType("TransformGroup").GetPosition()
 			if Getdistance(new_pos, self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance:
 				self.enemy_actor.enemy.is_dead = True
+				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
 				print("Collision!")
 			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:
+				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
 				print("Out of stage!")
 			else:
 				next_bomb_list.append(bomb)
 
 		self.danuri_bomb_list = next_bomb_list
 
-	def AddDanuriBomb(self, container, pos, direction):
+	def AddDanuriBomb(self, pos, direction):
 		if self.enemy_actor.enemy.is_dead == True:
 			return 0
-			
-		new_bomb = container.LoadPrefab("$project/Assets/Bomb.prefab")
+
+		new_bomb = self.danuri_bomb_con.LoadPrefab("$project/Assets/Bomb.prefab")
 		new_bomb.PropInstance.SetShow(True)
 		new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
 		self.danuri_bomb_list.append((new_bomb, direction))
