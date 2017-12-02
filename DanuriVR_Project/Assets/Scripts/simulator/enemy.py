@@ -61,10 +61,12 @@ class Enemy:
 		bomb_num = len(bomb_list)
 		if (bomb_num > 0): # Run the network for each bomb and take an average velocity of the results
 			for bomb in bomb_list:
-				btoe_x = bomb.pos[0] - e_x
-				btoe_y = bomb.pos[1] - e_y
+				obj = bomb[0]
+				pos = obj.FindComponentByType("TransformGroup").GetPosition()
+				btoe_x = pos.x - e_x
+				btoe_y = pos.z - e_y
 				btoe_d = math.sqrt(btoe_x**2 + btoe_y**2)
-				b_d = btoe_d - self.rad - bomb.rad
+				b_d = btoe_d - self.rad - 0.5
 				if (btoe_d > 0.001):
 					b_x = b_d * (btoe_x/btoe_d) # d * cos(theta)
 					b_y = b_d * (btoe_y/btoe_d) # d * sin(theta)
@@ -73,7 +75,7 @@ class Enemy:
 					b_y = b_d
 				b_x_normal = b_x / b_max_dist
 				b_y_normal = b_y / b_max_dist
-				v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal, bomb.dir[0], bomb.dir[1]])
+				v = self.nn.run([e_x_normal, e_y_normal, p_x_normal, p_y_normal, b_x_normal, b_y_normal, bomb[1].x, bomb[1].z])
 				v_x += v[0]
 				v_y += v[1]
 				#print("-------------------------------%.4f, %.4f"%(v[0], v[1]))
