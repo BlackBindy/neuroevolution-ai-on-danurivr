@@ -14,6 +14,8 @@ class Enemy:
 		self.use_velocity = use_velocity # True: NN result represents velocity, False: NN result represents acceleration
 		self.is_dead = False
 
+		self.is_assigned = False
+
 		# private		
 		self._vel = (0, 0) # velocity
 
@@ -21,6 +23,7 @@ class Enemy:
 		self.play_area = play_area
 		self.stage_rad = stage_rad
 		self.bomb_area = bomb_area
+		self.is_assigned = True
 
 	def move(self, bomb_list, player_pos):
 		# Distance of the enemy from the origin

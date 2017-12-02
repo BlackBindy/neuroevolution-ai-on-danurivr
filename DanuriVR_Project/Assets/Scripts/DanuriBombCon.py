@@ -16,12 +16,12 @@ class DanuriBombCon(Actor.Actor):
 		self._ballR = 0.5;
 		self._distance = self._enemyR + self._ballR
 		self._bomb_area = 40
-		#print(uid)
-        #self.UID = uid
-		#print(self.container)
 		return 0
 
 	def Update(self):
+		if self.enemy_actor.is_created == False:
+			return 0
+
 		if self.enemy_actor.enemy.is_dead == True:
 			return 0
 
@@ -38,6 +38,7 @@ class DanuriBombCon(Actor.Actor):
 			new_pos = obj.FindComponentByType("TransformGroup").GetPosition()
 			if Getdistance(new_pos, self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance:
 				self.enemy_actor.enemy.is_dead = True
+				self.enemy_actor.change_show(0)
 				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
 				print("Collision!")
 			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:
@@ -56,6 +57,11 @@ class DanuriBombCon(Actor.Actor):
 		new_bomb.PropInstance.SetShow(True)
 		new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
 		self.danuri_bomb_list.append((new_bomb, direction))
+
+	def reset_bomb_list(self):
+		for (obj, direction) in self.danuri_bomb_list:
+			self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
+		self.danuri_bomb_list = []
 
 def Getdistance(v1, v2):
 	distance = float(0)
