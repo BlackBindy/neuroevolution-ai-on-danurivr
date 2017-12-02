@@ -1,10 +1,12 @@
-from .bomb import Bomb
 import random as rd
 import math
+import Math3d
 
 class Player:
-	def __init__(self, position, fps, play_area, speed=1, move_cycle=30, fire_rate=1, fire_cycle=3):
+	def __init__(self, con_actor, position, pos_y, fps, play_area, speed=1, move_cycle=30, fire_rate=1, fire_cycle=3):
+		self.con_actor = con_actor
 		self.pos = position
+		self.pos_y = pos_y
 		self.speed = speed # speed in degree
 		self.move_cycle = move_cycle # least number of frames that player should maintain the speed
 		self.fire_rate = fire_rate * fps # minimum number of frames until the next fire
@@ -22,6 +24,7 @@ class Player:
 		if(self.__next_fire > 0):
 			self.__next_fire -= 1
 		else:
+			self.fire(enemy_pos)
 			self.assign_next_fire()
 
 		# Change the speed every n frames (n: move_cycle)
@@ -49,10 +52,13 @@ class Player:
 		to_enemy = (enemy_pos[0]-self.pos[0], enemy_pos[1]-self.pos[1]) # TEMP
 		sqrt = math.sqrt(to_enemy[0]**2 + to_enemy[1]**2)
 		to_enemy = (to_enemy[0]/sqrt, to_enemy[1]/sqrt)
-		bomb = Bomb(self.pos, to_enemy)
-		#self.sim.add_bomb(bomb) <--------------
+		#bomb = Bomb(self.pos, to_enemy)
+		
+		position = Math3d.Vector3(self.pos[0], self.pos_y, self.pos[1])
+		direction = Math3d.Vector3(to_enemy[0], 0, to_enemy[1])
+		self.con_actor.AddDanuriBomb(position, direction)
+
 		self.bomb_count += 1
-		return " : Fire to (%.3f, %.3f)"%(to_enemy[0], to_enemy[1])
 
 	###### Test purpose (to be removed)
 	def get_cur_speed(self):

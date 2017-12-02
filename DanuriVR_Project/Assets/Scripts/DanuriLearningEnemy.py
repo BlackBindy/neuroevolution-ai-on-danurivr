@@ -11,7 +11,7 @@ class DanuriLearningEnemy(Actor.Actor):
 		self.danuri_enemy = Container(0)
 		self.danuri_palyer = Container(0)
 		self.bomb_con = Container(0)
-		self.pos = Math3d.Vector3(0)
+		self.pos = Math3d.Vector3(0,0,0)
 		self.enemy = None
 		self.is_dead = False
 		self.is_created = False
