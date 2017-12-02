@@ -14,38 +14,48 @@ class DanuriEnemy(Actor.Actor):
 		self.generation_num = 0
 		self.file_name = ""
 		self._pos = Math3d.Vector3(0)
+		self.enemy = None
 
 
 	def OnCreate(self, uid):
 		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")
 		self.bomb_con_actor = self.bomb_con_script.GetActor()
 
-		# Load the network
+		self._init_pos = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition()
 		self._pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
 
-		path = EngineFileTool.GetProjectPath() + "/Assets/Scripts" + "/model/" + self.file_name + ".txt"
+		# Load the network
+		self.load_enemies(self.file_name, self.generation_num)
 
-		# Load the saved file
-		result = load(path)
-		network_size = result[0]
-		best_enemies = result[1:]
-		print(len(result))
-		print(len(best_enemies)) # = number of best enemies = number of generation
-
-		# Choose a generation and create an enemy
-		vec = best_enemies[self.generation_num] # vec: the weights of the neural network
-		self.enemy = Enemy(network_size, vec=vec)
-		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
-
-
-	def Update(self):		
-		if self.enemy.is_dead == True:
+	def Update(self):
+		if self.enemy == None:
+			return 0
+		elif self.enemy.is_dead == True:
+			self.load_enemies(self.file_name, self.generation_num)
 			return 0
 			
 		danuri_palyer_pos = self.danuri_palyer.FindComponentByType("TransformGroup").GetPosition()
 		danuri_palyer_pos = (danuri_palyer_pos.x, danuri_palyer_pos.z)
 		#print(danuri_palyer_pos)
 		self.move(danuri_palyer_pos)
+
+
+	def load_enemies(self, file_name, generation_num):
+		self.file_name = file_name
+		self.generation_num = generation_num
+		path = EngineFileTool.GetProjectPath() + "/Assets/Scripts" + "/model/" + file_name + ".txt"
+
+		# Load the saved file
+		result = load(path)
+		network_size = result[0]
+		best_enemies = result[1:]
+		print("Load enemies: ", len(best_enemies)) # = number of best enemies = number of generation
+
+		# Choose a generation and create an enemy
+		vec = best_enemies[generation_num] # vec: the weights of the neural network
+		self.enemy = Enemy(network_size, vec=vec)
+		self.enemy.assign_sim_info(play_area=38, stage_rad=30, bomb_area=40) # assign the info of the game (stage size, playable area...)
+		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self._init_pos)
 
 
 	def move(self, player_pos):
