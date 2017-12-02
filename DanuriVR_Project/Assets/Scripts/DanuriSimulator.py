@@ -19,6 +19,8 @@ class DanuriSimulator(Actor.Actor):
 		# Private
 		self.__cur_frame = 0
 		self.__rank = []
+		self.__dead_enemies = 0
+		self.__is_done = False
 
 
 	def OnCreate(self, uid):
@@ -44,14 +46,36 @@ class DanuriSimulator(Actor.Actor):
 			for sim in self.sim_list:
 				self.is_all_created = self.is_all_created and self.is_on_create_done(sim)
 		else:
-			self.run()
+			if self.__is_done == False and self.__cur_frame < self.total_frames and self.__dead_enemies < self.sim_num:
+				self.__dead_enemies = self.run()
+				self.__cur_frame += 1
+			else:
+				if self.__is_done == False:
+					self.__is_done = True
+
+					# Add survivors into the rank
+					for sim in self.sim_list:
+						if sim.enemy_actor.is_dead == False:
+							self.__rank.append(sim)
+
+					# Reverse the rank
+					self.__rank.reverse()
+
+					# Genetic algorithm
+					print(len(self.__rank))
 
 
-	def run_all(self):		
-		dead_enemies = 0
-		while (self.__cur_frame < self.total_frames and dead_enemies < self.sim_num):
-			self.run()
 
+		'''
+		def run_all(self):		
+			self.on_simulation = True
+
+			dead_enemies = 0
+			while (self.__cur_frame < self.total_frames and dead_enemies < self.sim_num):
+				dead_enemies = self.run()
+
+			self.on_simulation = False
+		'''
 		# All the survivors are added into the rank list
 		'''
 		for sim in self.sim_list:
@@ -86,9 +110,9 @@ class DanuriSimulator(Actor.Actor):
 		'''
 
 	def run(self):
-		for i in range(self.sim_num):
-			# Append log list if there is no log for the enemy yet
+		dead_enemies = 0
 
+		for i in range(self.sim_num):
 			# Fetch current enemy, player, and simulation
 			sim = self.sim_list[i]
 			player = sim.player_actor
@@ -96,41 +120,15 @@ class DanuriSimulator(Actor.Actor):
 
 			# If cur enemy is already dead, no simulation is proceeded
 			if enemy.is_dead:
+				dead_enemies += 1
+				if not sim in self.__rank:
+					self.__rank.append(sim)
 				continue
 
 			# Move the player, it will shoot a bomb randomly
 			player.move(enemy.pos)
 
-			# Move the bombs and remove the ones whose position is too far
-			'''
-			removed_bombs = []
-			for bomb in sim.get_bomb_list():
-				bomb.move()
-
-				# Destroy a bomb if it is out of the bomb area
-				if (bomb.pos[0]**2 + bomb.pos[1]**2) > self.bomb_area**2:
-					removed_bombs.append(bomb)
-
-				# If a bomb hits the enemy, enemy dies
-				dist_x = bomb.pos[0] - enemy.pos[0]
-				dist_y = bomb.pos[1] - enemy.pos[1]
-				dist = (dist_x**2 + dist_y**2)
-				if dist < (bomb.rad+enemy.rad)**2:
-					enemy.is_dead = True
-					self.__rank.append(i)
-					dead_enemies += 1
-
-			sim.remove_bombs(removed_bombs)
-			'''
-
-			# Move the enemies and kill the ones who is hit by a bomb
-			#enemy.move(sim.get_bomb_list(), player.pos)
-
-			# Increase the current frame count of the simulation by one
-			#sim.inc_frame_count()
-
-		# Increase the frame of the simulator	
-		self.__cur_frame += 1
+		return dead_enemies
 
 	def fetch_top_enemies(self, num):
 		if len(self.__rank) == 0:
