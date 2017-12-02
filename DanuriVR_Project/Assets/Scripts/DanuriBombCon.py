@@ -11,6 +11,7 @@ class DanuriBombCon(Actor.Actor):
 		self._enemyR = 2.0;
 		self._ballR = 0.5;
 		self._distance = self._enemyR + self._ballR
+		self._bomb_area = 40
 		#print(uid)
         #self.UID = uid
 		#print(self.container)
@@ -27,8 +28,11 @@ class DanuriBombCon(Actor.Actor):
 			obj.FindComponentByType("TransformGroup").SetPosition(pos + direction)
 
 			#check collision
-			if(Getdistance(obj.FindComponentByType("TransformGroup").GetPosition(), self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance):
+			new_pos = obj.FindComponentByType("TransformGroup").GetPosition()
+			if Getdistance(new_pos, self.enemy.FindComponentByType("TransformGroup").GetPosition()) < self._distance:
 				print("Collision!")
+			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:
+				print("Out of stage!")
 			else:
 				next_bomb_list.append(bomb)
 

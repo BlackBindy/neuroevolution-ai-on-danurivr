@@ -10,12 +10,17 @@ class DanuriEnemy(Actor.Actor):
 	def __init__(self):
 		self.danuri_enemy = Container(0)
 		self.danuri_palyer = Container(0)
+		self.bomb_con = Container(0)
 		self.generation_num = 0
 		self.file_name = ""
 		self._pos = Math3d.Vector3(0)
 
 
 	def OnCreate(self, uid):
+		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")
+		self.bomb_con_actor = self.bomb_con_script.GetActor()
+
+		# Load the network
 		self._pos.y = self.danuri_enemy.FindComponentByType("TransformGroup").GetPosition().y
 
 		path = EngineFileTool.GetProjectPath() + "/Assets/Scripts" + "/model/" + self.file_name + ".txt"
@@ -39,7 +44,7 @@ class DanuriEnemy(Actor.Actor):
 
 
 	def move(self, player_pos):
-		bomb_list = [] # The list of the bomb exist on the game
+		bomb_list = self.bomb_con_actor.danuri_bomb_list # The list of the bomb exist on the game
 		self.enemy.move(bomb_list, player_pos)
 
 		# move danuri enemy

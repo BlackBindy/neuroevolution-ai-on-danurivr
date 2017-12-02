@@ -61,10 +61,12 @@ class Enemy:
 		bomb_num = len(bomb_list)
 		if (bomb_num > 0): # Run the network for each bomb and take an average velocity of the results
 			for bomb in bomb_list:
-				btoe_x = bomb.pos[0] - e_x
-				btoe_y = bomb.pos[1] - e_y
+				obj = bomb[0]
+				pos = obj.FindComponentByType("TransformGroup").GetPosition()
+				btoe_x = pos.x - e_x
+				btoe_y = pos.z - e_y
 				btoe_d = math.sqrt(btoe_x**2 + btoe_y**2)
-				b_d = btoe_d - self.rad - bomb.rad
+				b_d = btoe_d - self.rad - 0.5
 				if (btoe_d > 0.001):
 					b_x = b_d * (btoe_x/btoe_d) # d * cos(theta)
 					b_y = b_d * (btoe_y/btoe_d) # d * sin(theta)
