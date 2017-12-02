@@ -21,6 +21,9 @@ class DanuriSimulation(Actor.Actor):
 		self.bomb_con_actor = self.bomb_con_script.GetActor()
 		self.is_created = True
 
+	def reset_frame(self):
+		self._frame_count = 0
+
 	def increase_frame(self):
 		self._frame_count += 1
 

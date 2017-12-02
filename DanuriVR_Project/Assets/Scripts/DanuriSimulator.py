@@ -76,9 +76,20 @@ class DanuriSimulator(Actor.Actor):
 					for sim in self.__rank:
 						sum_frame_count += sim.get_frame()
 					enemy_list = self.get_next_generation(self.g, sum_frame_count)
-					print(len(enemy_list))
 
+					# Start next generation
 					self.g += 1
+					if self.g < self.generation:
+						self.__is_done = False
+						for i in range(len(self.sim_list)):
+							self.__cur_frame = 0
+							self.__dead_enemies = 0
+							sim = self.sim_list[i]
+							sim.enemy_actor.enemy = enemy_list[i]
+							sim.enemy_actor.reset_state()
+							sim.player_actor.reset_state()
+							sim.bomb_con_actor.reset_bomb_list()
+							sim.reset_frame()
 
 
 

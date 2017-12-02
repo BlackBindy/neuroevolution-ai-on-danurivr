@@ -61,6 +61,11 @@ class DanuriBombCon(Actor.Actor):
 		new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
 		self.danuri_bomb_list.append((new_bomb, direction))
 
+	def reset_bomb_list(self):
+		for (obj, direction) in self.danuri_bomb_list:
+			self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
+		self.danuri_bomb_list = []
+
 def Getdistance(v1, v2):
 	distance = float(0)
 	distance = math.sqrt(math.pow(v1.x-v2.x, 2) + math.pow(v1.y-v2.y, 2) + math.pow(v1.z-v2.z, 2))

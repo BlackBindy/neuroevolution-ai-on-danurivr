@@ -6,6 +6,7 @@ class Player:
 	def __init__(self, con_actor, position, pos_y, fps, play_area, speed=1, move_cycle=30, fire_rate=1, fire_cycle=3):
 		self.con_actor = con_actor
 		self.pos = position
+		self.init_pos = position
 		self.pos_y = pos_y
 		self.speed = speed # speed in degree
 		self.move_cycle = move_cycle # least number of frames that player should maintain the speed
@@ -59,6 +60,11 @@ class Player:
 		self.con_actor.AddDanuriBomb(position, direction)
 
 		self.bomb_count += 1
+
+	def reset_state(self):
+		self.pos = self.init_pos
+		self.bomb_count = 0
+		self.cur_frame = 0
 
 	###### Test purpose (to be removed)
 	def get_cur_speed(self):

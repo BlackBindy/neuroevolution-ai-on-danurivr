@@ -16,6 +16,7 @@ class DanuriLearningPlayer(Actor.Actor):
 
 		self.transform_group = self.con.FindComponentByType("TransformGroup")
 		self.pos = self.transform_group.GetPosition()
+		self.init_pos = self.pos
 		self.player = Player(self.bomb_con_actor, (self.pos.x, self.pos.z), self.pos.y, 60, 38)
 		self.is_created = True
 
@@ -24,4 +25,9 @@ class DanuriLearningPlayer(Actor.Actor):
 		self.player.move(enemy_pos)
 		self.pos.x = self.player.pos[0]
 		self.pos.z = self.player.pos[1]
+		self.transform_group.SetPosition(self.pos)
+
+	def reset_state(self):
+		self.player.reset_state()
+		self.pos = self.init_pos
 		self.transform_group.SetPosition(self.pos)
