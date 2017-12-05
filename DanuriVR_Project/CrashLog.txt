@@ -1,52 +1,22 @@
 Crash Information : 
-Player.exe caused an EXCEPTION_ACCESS_VIOLATION in module python36.dll at 0023:5A5B76AA
+Danuri-VR.exe caused an EXCEPTION_ACCESS_VIOLATION in module VRCAT.Wrapper.dll at 0023:526954C5, Code3::Script::ScriptInterfaceActor::RestoreDuplicateProperties()+0293 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactor.cpp, line 0248+0087 byte(s)
 
 Register Information : 
-EAX=00000000  EBX=00000000  ECX=0781B330  EDX=00000002  ESI=0781B330
-EDI=077C01B0  EBP=00CFF08C  ESP=00CFF088  EIP=5A5B76AA  FLG=00210206
+EAX=31736C68  EBX=0C69F940  ECX=216E6DF8  EDX=0C6A0140  ESI=00000060
+EDI=00000006  EBP=00EFB910  ESP=00EFB8F4  EIP=526954C5  FLG=00210246
 CS=0023   DS=002B  SS=002B  ES=002B   FS=0053  GS=002B
 
 Stack Trace : 
-0023:5A5B76AA (0x0781B330 0x00000000 0x00000000 0x00000000) python36.dll
-0023:5A6402AA (0x077C0300 0x00000000 0x5A5B76A0 0x00000000) python36.dll, PyFrame_GetLineNumber()+2554 byte(s)
-0023:5A5B8163 (0x00CFF17C 0x00000000 0x00000000 0x00000000) python36.dll
-0023:5A5B8765 (0x077D0EB8 0x00000000 0x5A667392 0x00000000) python36.dll
-0023:5A5B954C (0x5A8496B0 0x00000000 0x00000000 0x00000000) python36.dll, PyObject_GC_UnTrack()+0236 byte(s)
-0023:5A6627B0 (0x00000000 0x00000000 0x076E2C60 0x00000000) python36.dll, PySet_New()+0016 byte(s)
-0023:5A6F67DF (0x076E2E40 0x00000000 0x076E2C60 0x00000000) python36.dll, PyST_GetScope()+3199 byte(s)
-0023:5A6F6B71 (0x0DA4E170 0x00000000 0x07754700 0x00000000) python36.dll, PyST_GetScope()+4113 byte(s)
-0023:5A6BE82B (0x0DA4E170 0x00000000 0x07754700 0x00000000) python36.dll, PyAST_CompileObject()+0203 byte(s)
-0023:5A6F40CB (0x07822E38 0x00000000 0x07754700 0x00000000) python36.dll, Py_CompileStringObject()+0139 byte(s)
-0023:5A6B2048 (0x07754700 0x00000000 0x0746DB18 0x00000000) python36.dll, PyAST_FromNode()+31352 byte(s)
-0023:5A6B0E79 (0x0747C480 0x00000000 0x0782F180 0x00000000) python36.dll, PyAST_FromNode()+26793 byte(s)
-0023:5A654865 (0x5A6B0E10 0x00000000 0x0782F180 0x00000000) python36.dll, PyCFunction_FastCallDict()+0421 byte(s)
-0023:5A65499E (0x07478CB0 0x00000000 0x0782F180 0x00000000) python36.dll, PyCFunction_FastCallKeywords()+0062 byte(s)
-0023:5A6BA8D7 (0x00000000 0x00000000 0x0782F030 0x00000000) python36.dll, PyEval_GetFuncDesc()+0311 byte(s)
-0023:5A6B61D0 (0x0782F030 0x00000000 0x00000000 0x00000000) python36.dll, PyEval_EvalFrameDefault()+2784 byte(s)
-0023:5A6BA9EA (0x00000002 0x00000000 0x074D8ED0 0x00000000) python36.dll, PyEval_GetFuncDesc()+0586 byte(s)
-0023:5A6BAA61 (0x00000002 0x00000000 0x00000000 0x00000000) python36.dll, PyEval_GetFuncDesc()+0705 byte(s)
-0023:5A6BA937 (0x00000000 0x00000000 0x077C01B0 0x00000000) python36.dll, PyEval_GetFuncDesc()+0407 byte(s)
-0023:5A6B61D0 (0x077C01B0 0x00000000 0x00000000 0x00000000) python36.dll, PyEval_EvalFrameDefault()+2784 byte(s)
-0023:5A6BA9EA (0x00000001 0x00000000 0x074D8ED0 0x00000000) python36.dll, PyEval_GetFuncDesc()+0586 byte(s)
-0023:5A6BAA61 (0x00000001 0x00000000 0x00000000 0x00000000) python36.dll, PyEval_GetFuncDesc()+0705 byte(s)
-0023:5A6BA937 (0x00000000 0x00000000 0x07842030 0x00000000) python36.dll, PyEval_GetFuncDesc()+0407 byte(s)
-0023:5A6B61D0 (0x07842030 0x00000000 0x00000000 0x00000000) python36.dll, PyEval_EvalFrameDefault()+2784 byte(s)
-0023:5A6BA9EA (0x00000002 0x00000000 0x074D8ED0 0x00000000) python36.dll, PyEval_GetFuncDesc()+0586 byte(s)
-0023:5A6BAB6D (0x07819420 0x00000000 0x00CFF6A4 0x00000000) python36.dll, PyFunction_FastCallDict()+0093 byte(s)
-0023:5A6182B1 (0x07819420 0x00000000 0x00CFF6A4 0x00000000) python36.dll, PyObject_FastCallDict()+0097 byte(s)
-0023:5A618409 (0x07819420 0x00000000 0x0780DE30 0x00000000) python36.dll, PyObject_Call_Prepend()+0137 byte(s)
-0023:5A62A48D (0x074ACF58 0x00000000 0x0783F1B0 0x00000000) python36.dll, PyMethod_New()+1517 byte(s)
-0023:5A6181BD (0x074ACF58 0x00000000 0x0783F1B0 0x00000000) python36.dll, PyObject_Call()+0109 byte(s)
-0023:5A61873F (0x00000001 0x00000000 0x074ACF58 0x00000000) python36.dll, PyObject_FastCallKeywords()+0223 byte(s)
-0023:5A6188BD (0x00CFF754 0x00000000 0x00000000 0x00000000) python36.dll, PyObject_CallFunction_SizeT()+0221 byte(s)
-0023:5A618946 (0x0780DE30 0x00000000 0x019C2E1C 0x00000000) python36.dll, PyObject_CallMethod()+0054 byte(s)
-0023:0107C485 (0x00000219 0x00000000 0x5A2266F1 0x00000000) Player.exe
-0023:00F5B168 (0x01B92340 0x00000000 0x00000000 0x00000000) Player.exe
-0023:01156903 (0xED134DD2 0xFFFFFFFF 0x01B91950 0x00000000) Player.exe
-0023:0115249A (0x00000000 0x00000000 0x05BC4BA0 0x00000000) Player.exe
-0023:53DABEE8 (0x00F10000 0x00000000 0x00000000 0x00000000) mfc140u.dll
-0023:01733CB2 (0x00ACC000 0x00000000 0x748B8720 0x00000000) Player.exe, curl_formget()+5899202 byte(s)
-0023:748B8744 (0x00ACC000 0x00000000 0x19CE2BF4 0x00000000) KERNEL32.DLL, BaseThreadInitThunk()+0036 byte(s)
-0023:77B0582D (0xFFFFFFFF 0xFFFFFFFF 0x77B26373 0x00000000) ntdll.dll, RtlGetAppContainerNamedObjectPath()+0253 byte(s)
-0023:77B057FD (0x01733D24 0x00000000 0x00ACC000 0x00000000) ntdll.dll, RtlGetAppContainerNamedObjectPath()+0205 byte(s)
+0023:526954C5 (0x0C6A0140 0x00000000 0xD080C95E 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActor::RestoreDuplicateProperties()+0293 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactor.cpp, line 0248+0087 byte(s)
+0023:5269720B (0xD080C91A 0xFFFFFFFF 0x21675FD1 0x00000000) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActorPython::InitializeActorProperties()+0907 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactorpython.cpp, line 0318
+0023:52696C69 (0x216D50EC 0x00000000 0xD080CAAE 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActorPython::LoadActor()+0313 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactorpython.cpp, line 0070
+0023:526509B9 (0x00000002 0x00000000 0x215AC168 0x00000000) VRCAT.Wrapper.dll, Code3::Script::TypeScript::RefreshActorProperties()+0185 byte(s), c:\evrat\frontline\platform\resource\script\typescript.cpp, line 0232
+0023:52605AD9 (0x00EFE408 0x00000000 0x00000003 0x00000000) VRCAT.Wrapper.dll, Code3::Script::ScriptComponent::ApplyAllProperty()+0137 byte(s), c:\evrat\frontline\platform\resource\script\scriptcomponent.cpp, line 0118+0034 byte(s)
+0023:5258AF41 (0xD080B42E 0xFFFFFFFF 0x00EFE408 0x00000000) VRCAT.Wrapper.dll, Code3::Component::Container::ApplyAllProperty()+0065 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 1430+0014 byte(s)
+0023:525899FA (0x00EFE408 0x00000000 0xD080BFCA 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1770 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 1045
+0023:525897C2 (0x00EFE408 0x00000000 0xD080A966 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
+0023:525897C2 (0x00EFE408 0x00000000 0xD0809302 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
+0023:525897C2 (0x00EFE408 0x00000000 0xD0809442 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
+0023:527ECD0A (0x00EFE508 0x00000000 0xD0809436 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::FileIO::ArchiveTarget::LoadFromFile()+0122 byte(s), c:\evrat\frontline\codebase\fileio\archive.cpp, line 0913+0016 byte(s)
+0023:52588215 (0x00EFE508 0x00000000 0xA6D58D08 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::LoadFromFile()+0085 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0290+0019 byte(s)
 
