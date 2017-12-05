@@ -15,6 +15,7 @@ class DanuriEnemy(Actor.Actor):
 		self.file_name = ""
 		self._pos = Math3d.Vector3(0)
 		self.enemy = None
+		self.is_created = False
 
 
 	def OnCreate(self, uid):
@@ -26,12 +27,14 @@ class DanuriEnemy(Actor.Actor):
 
 		# Load the network
 		self.load_enemies(self.file_name, self.generation_num)
+		self.is_created = True
 
 	def Update(self):
 		if self.enemy == None:
 			return 0
 		elif self.enemy.is_dead == True:
 			self.load_enemies(self.file_name, self.generation_num)
+			self.change_show(1)
 			return 0
 			
 		danuri_palyer_pos = self.danuri_palyer.FindComponentByType("TransformGroup").GetPosition()
@@ -66,3 +69,7 @@ class DanuriEnemy(Actor.Actor):
 		self._pos.x = self.enemy.pos[0]
 		self._pos.z = self.enemy.pos[1]
 		self.danuri_enemy.FindComponentByType("TransformGroup").SetPosition(self._pos)
+
+
+	def change_show(self, value):
+		self.danuri_enemy.PropInstance.SetShow(value)
