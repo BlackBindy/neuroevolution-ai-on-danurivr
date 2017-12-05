@@ -38,6 +38,8 @@ class DanuriSimulator(Actor.Actor):
 		self.mutation_prob = 0.001
 		self.g = 0
 
+		#GUI
+		self.generation_label = Container(0)
 
 	def OnCreate(self, uid):
 		self.sim1_script = self.sim1.FindComponentByType("ScriptComponent")
@@ -65,6 +67,7 @@ class DanuriSimulator(Actor.Actor):
 		self.sim_num = len(self.sim_list)
 		self.is_all_created = False
 
+		self.generation_label.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Generation : " + str(self.g))
 
 	def Update(self):
 		if self.is_all_created == False:
@@ -104,6 +107,7 @@ class DanuriSimulator(Actor.Actor):
 
 					# Start next generation
 					self.g += 1
+					self.generation_label.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Generation : " + str(self.g))
 					for i in range(len(self.sim_list)):
 						sim = self.sim_list[i]
 						sim.enemy_actor.assign_enemy(enemy=enemy_list[i])
