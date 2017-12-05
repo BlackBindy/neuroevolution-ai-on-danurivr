@@ -40,6 +40,9 @@ class DanuriSimulator(Actor.Actor):
 
 		#GUI
 		self.generation_label = Container(0)
+		self.time = Container(0)
+		self._time = 0.0
+		self._frame = 0
 
 	def OnCreate(self, uid):
 		self.sim1_script = self.sim1.FindComponentByType("ScriptComponent")
@@ -68,8 +71,13 @@ class DanuriSimulator(Actor.Actor):
 		self.is_all_created = False
 
 		self.generation_label.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Generation : " + str(self.g))
+		self.time.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Time : " + str(self._time)+" sec")
 
 	def Update(self):
+		self._frame += 1
+		self._time = self._frame/60
+		self.time.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Time : %4.2f sec"%(self._time))
+
 		if self.is_all_created == False:
 			self.is_all_created = True
 			for sim in self.sim_list:
@@ -108,6 +116,7 @@ class DanuriSimulator(Actor.Actor):
 					# Start next generation
 					self.g += 1
 					self.generation_label.FindComponentByType("EGuiLabel").PropertyEGuiLabel.SetText("Generation : " + str(self.g))
+					self._frame = 0
 					for i in range(len(self.sim_list)):
 						sim = self.sim_list[i]
 						sim.enemy_actor.assign_enemy(enemy=enemy_list[i])
