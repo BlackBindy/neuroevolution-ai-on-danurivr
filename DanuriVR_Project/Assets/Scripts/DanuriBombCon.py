@@ -53,7 +53,7 @@ class DanuriBombCon(Actor.Actor):
 		if self.enemy_actor.enemy.is_dead == True:
 			return 0
 
-		new_bomb = self.danuri_bomb_con.LoadPrefab("$project/Assets/Bomb.prefab")
+		new_bomb = self.danuri_bomb_con.LoadPrefab("$project/Assets/PokeBall.prefab")
 		new_bomb.PropInstance.SetShow(True)
 		new_bomb.FindComponentByType("TransformGroup").SetPosition(pos + 0.5 * direction)
 		self.danuri_bomb_list.append((new_bomb, direction))

@@ -1,22 +1,39 @@
 Crash Information : 
-Danuri-VR.exe caused an EXCEPTION_ACCESS_VIOLATION in module VRCAT.Wrapper.dll at 0023:526954C5, Code3::Script::ScriptInterfaceActor::RestoreDuplicateProperties()+0293 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactor.cpp, line 0248+0087 byte(s)
+Danuri-VR.exe caused an  in module KERNELBASE.dll at 0023:757008B2, RaiseException()+0098 byte(s)
 
 Register Information : 
-EAX=31736C68  EBX=0C69F940  ECX=216E6DF8  EDX=0C6A0140  ESI=00000060
-EDI=00000006  EBP=00EFB910  ESP=00EFB8F4  EIP=526954C5  FLG=00210246
+EAX=00B9DDE0  EBX=00000005  ECX=00000005  EDX=00000000  ESI=00B9DEA0
+EDI=00000001  EBP=00B9DE38  ESP=00B9DDE0  EIP=757008B2  FLG=00200212
 CS=0023   DS=002B  SS=002B  ES=002B   FS=0053  GS=002B
 
 Stack Trace : 
-0023:526954C5 (0x0C6A0140 0x00000000 0xD080C95E 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActor::RestoreDuplicateProperties()+0293 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactor.cpp, line 0248+0087 byte(s)
-0023:5269720B (0xD080C91A 0xFFFFFFFF 0x21675FD1 0x00000000) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActorPython::InitializeActorProperties()+0907 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactorpython.cpp, line 0318
-0023:52696C69 (0x216D50EC 0x00000000 0xD080CAAE 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Script::ScriptInterfaceActorPython::LoadActor()+0313 byte(s), c:\evrat\frontline\platform\resource\script\scriptinterfaceactorpython.cpp, line 0070
-0023:526509B9 (0x00000002 0x00000000 0x215AC168 0x00000000) VRCAT.Wrapper.dll, Code3::Script::TypeScript::RefreshActorProperties()+0185 byte(s), c:\evrat\frontline\platform\resource\script\typescript.cpp, line 0232
-0023:52605AD9 (0x00EFE408 0x00000000 0x00000003 0x00000000) VRCAT.Wrapper.dll, Code3::Script::ScriptComponent::ApplyAllProperty()+0137 byte(s), c:\evrat\frontline\platform\resource\script\scriptcomponent.cpp, line 0118+0034 byte(s)
-0023:5258AF41 (0xD080B42E 0xFFFFFFFF 0x00EFE408 0x00000000) VRCAT.Wrapper.dll, Code3::Component::Container::ApplyAllProperty()+0065 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 1430+0014 byte(s)
-0023:525899FA (0x00EFE408 0x00000000 0xD080BFCA 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1770 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 1045
-0023:525897C2 (0x00EFE408 0x00000000 0xD080A966 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
-0023:525897C2 (0x00EFE408 0x00000000 0xD0809302 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
-0023:525897C2 (0x00EFE408 0x00000000 0xD0809442 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::Load()+1202 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0993
-0023:527ECD0A (0x00EFE508 0x00000000 0xD0809436 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::FileIO::ArchiveTarget::LoadFromFile()+0122 byte(s), c:\evrat\frontline\codebase\fileio\archive.cpp, line 0913+0016 byte(s)
-0023:52588215 (0x00EFE508 0x00000000 0xA6D58D08 0xFFFFFFFF) VRCAT.Wrapper.dll, Code3::Component::Container::LoadFromFile()+0085 byte(s), c:\evrat\frontline\componentbase\component\container.cpp, line 0290+0019 byte(s)
+0023:757008B2 (0xE0434352 0xFFFFFFFF 0x00000001 0x00000000) KERNELBASE.dll, RaiseException()+0098 byte(s)
+0023:710E80E2 (0x00000000 0x00000000 0x772620C8 0x00000000) clr.dll, GetPrivateContextsPerfCounters()+67842 byte(s)
+0023:710E82E8 (0x05EF4D68 0x00000000 0x3851A024 0x00000000) clr.dll, GetPrivateContextsPerfCounters()+68360 byte(s)
+0023:5A41E942 (0x00B9E524 0x00000000 0x3851A024 0x00000000) PresentationFramework.ni.dll
+0023:5A4013D1 (0x00B9E548 0x00000000 0x00B9E438 0x00000000) PresentationFramework.ni.dll
+0023:597A30DF (0x00000000 0x00000000 0x00B9E630 0x00000000) PresentationFramework.ni.dll
+0023:597A1C45 (0x00000000 0x00000000 0x7FF00000 0x00000000) PresentationFramework.ni.dll
+0023:5972A4C1 (0x00000000 0x00000000 0x7FF00000 0x00000000) PresentationFramework.ni.dll
+0023:5CC7D172 (0x00000000 0x00000000 0x7FF00000 0x00000000) PresentationCore.ni.dll
+0023:5CC8DD8D (0x5CC951A5 0x00000000 0x5CC95130 0x00000000) PresentationCore.ni.dll
+0023:5CC951CE (0x00000000 0x00000000 0x00000000 0x00000000) PresentationCore.ni.dll
+0023:5CC94AB4 (0x00000000 0x00000000 0x04F0F450 0x00000000) PresentationCore.ni.dll
+0023:5CC94A0E (0x00000001 0x00000000 0x0501F5F0 0x00000000) PresentationCore.ni.dll
+0023:688D93A2 (0x00000001 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
+0023:688D92E4 (0x00000000 0x00000000 0x00000001 0x00000000) WindowsBase.ni.dll
+0023:688DBAC2 (0x385162FC 0x00000000 0x5E23BCD5 0x00000000) WindowsBase.ni.dll
+0023:688DB9EC (0x00000000 0x00000000 0x38196D04 0x00000000) WindowsBase.ni.dll
+0023:5E23BBE6 (0x00000000 0x00000000 0x38196D04 0x00000000) mscorlib.ni.dll
+0023:5E23BBA1 (0x38196D04 0x00000000 0x385162B0 0x00000000) mscorlib.ni.dll
+0023:688DB803 (0x38196D04 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
+0023:688DB6AE (0x00000000 0x00000000 0x04EF9DE0 0x00000000) WindowsBase.ni.dll
+0023:688D7D25 (0x00000000 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
+0023:688D7F1A (0x04EFACDC 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
+0023:688D95CB (0x04EFACDC 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
+0023:688D951B (0x00000001 0x00000000 0x04EF7264 0x00000000) WindowsBase.ni.dll
+0023:688D93A2 (0x00000001 0x00000000 0x04EFACC4 0x00000000) WindowsBase.ni.dll
+0023:688D92E4 (0x00000000 0x00000000 0x00000001 0x00000000) WindowsBase.ni.dll
+0023:688D78D1 (0x00000001 0x00000000 0x04EFACC4 0x00000000) WindowsBase.ni.dll
+0023:688D8DEE (0x00000000 0x00000000 0x00000000 0x00000000) WindowsBase.ni.dll
 
