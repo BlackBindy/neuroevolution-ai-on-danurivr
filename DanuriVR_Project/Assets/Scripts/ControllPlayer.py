@@ -37,7 +37,7 @@ class ControllPlayer(Actor.Actor):
 		#Camera look at
 		self._targetDir = self.GetLocalDir(self._pos)
 		self.cam.FindComponentByType("TransformGroup").LookAtLocalDirection(self._targetDir)
-
+		
 		return 0
 
 	def OnMessage(self, msg, number, Vector4_lparm, Vector4_wparam):

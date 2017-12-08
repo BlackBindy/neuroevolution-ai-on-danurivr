@@ -1,7 +1,7 @@
 import math
 import Math3d
 
-class DanuriBombCon(Actor.Actor):
+class DanuriBombCon_gamescene(Actor.Actor):
 	def __init__(self):
 		self.enemy = Container(0)
 		self.danuri_bomb_con = Container(0)
@@ -41,6 +41,7 @@ class DanuriBombCon(Actor.Actor):
 				self.enemy_actor.change_show(0)
 				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
 				print("Collision!")
+				GetWorldContainer().FindComponentByType("World").LoadScene("$project/Assets/catch.fsf");
 				
 			elif Getdistance(new_pos, Math3d.Vector4(0,new_pos.y,0)) > self._bomb_area:
 				self.danuri_bomb_con.DeleteChild(self.danuri_bomb_con.GetChildIndex(obj))
