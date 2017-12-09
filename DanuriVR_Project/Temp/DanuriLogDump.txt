@@ -2,8 +2,8 @@ Compile Shaders ... ShadowMap - ShadowMap
 Linking Shaders ...
 Shader Build Summary ...
 VertexShader Uniform Information : 
-  View : Index=0 Size=4 Offset=64 Type=float4x4 
-  Proj : Index=1 Size=4 Offset=128 Type=float4x4 
+  Proj : Index=0 Size=4 Offset=128 Type=float4x4 
+  View : Index=1 Size=4 Offset=64 Type=float4x4 
   World : Index=2 Size=4 Offset=0 Type=float4x4 
 PixelShader Uniform Information : 
 PixelShader UniformSampler Information : 
@@ -17,20 +17,20 @@ Report Uniform Parameter
   Vertex Shader (Background) 
   Pixel Shader (Background) 
     CameraPos : Index=7 Type=float4 Value=5.0,2.0,5.0,0.0
-    CameraDir : Index=6 Type=float4 Value=-0.68041384,-0.2721656,-0.68041378,0.0
-    ViewProj : Index=1 Type=float4x4 Value=-0.90522695,0.0,0.90522695,0.0,-0.44480065,2.22400308,-0.44480065,0.00000055,-0.68043083,-0.27217239,-0.68043083,7.2986517,-0.68041378,-0.27216557,-0.68041378,7.34846878
-    ViewProjInverse : Index=0 Type=float4x4 Value=-0.55235136,-0.08326699,-99.99729156,99.31938171,-0.0,0.41633254,-39.998909,39.72775269,0.55234897,-0.08326618,-99.99729156,99.31938171,-0.0,0.0,-19.99945831,19.99995995
     FarPlane : Index=9 Type=float4 Value=2000.0,0.0,0.0,0.0
-    BackgroundSunMatrix : Index=10 Type=float4x4 Value=-0.70710671,0.0,-0.70710689,-0.0,-0.40824839,0.81649655,0.40824828,-0.0,0.57735032,0.57735032,-0.5773502,-0.0,0.0,0.0,0.0,1.0
+    CameraDir : Index=6 Type=float4 Value=-0.68041384,-0.2721656,-0.68041378,0.0
+    ViewProjInverse : Index=0 Type=float4x4 Value=-0.55235136,-0.08326699,-99.99729156,99.31938171,-0.0,0.41633254,-39.998909,39.72775269,0.55234897,-0.08326618,-99.99729156,99.31938171,-0.0,0.0,-19.99945831,19.99995995
+    ViewProj : Index=1 Type=float4x4 Value=-0.90522695,0.0,0.90522695,0.0,-0.44480065,2.22400308,-0.44480065,0.00000055,-0.68043083,-0.27217239,-0.68043083,7.2986517,-0.68041378,-0.27216557,-0.68041378,7.34846878
     BackgroundSunSize : Index=11 Type=float4 Value=0.05,0.05,0.05,0.0
-    Orthographic : Index=3 Type=float4 Value=0.0,0.0,0.0,0.0
-    BackColor : Index=5 Type=float4 Value=0.1,0.1,0.2,1.0
-    GridInfo : Index=8 Type=float4 Value=2.0,0.5,0.0,0.0
+    BackgroundSunMatrix : Index=10 Type=float4x4 Value=-0.70710671,0.0,-0.70710689,-0.0,-0.40824839,0.81649655,0.40824828,-0.0,0.57735032,0.57735032,-0.5773502,-0.0,0.0,0.0,0.0,1.0
     BackgroundType : Index=2 Type=float4 Value=2.0,0.0,0.0,0.0
+    GridInfo : Index=8 Type=float4 Value=2.0,0.5,0.0,0.0
+    BackColor : Index=5 Type=float4 Value=0.1,0.1,0.2,1.0
     DrawGrid : Index=4 Type=float4 Value=0.0,0.0,0.0,0.0
+    Orthographic : Index=3 Type=float4 Value=0.0,0.0,0.0,0.0
     BackgroundGamma : Index=14 Type=float4 Value=1.0,0.0,0.0,0.0
-    BackgroundMipMapInfo : Index=13 Type=float4 Value=1.0,0.0,11.0,0.0
     EnvMapProjection : Index=12 Type=float4 Value=3.0,1.0,0.0,11.0
+    BackgroundMipMapInfo : Index=13 Type=float4 Value=1.0,0.0,11.0,0.0
 Compile Shaders ... DefaultFrame - TestFrameRed
 Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
 Resource::Shader Compile Error TestFrameRed
@@ -48,122 +48,312 @@ Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
 Open Texture Texture.jpg
 CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Rebuilding Tangent Space for 128 Polygons
-Rebuilding Tangent Space for 2431 Polygons
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Rebuilding Tangent Space for 2431 Polygons
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Rebuilding Tangent Space for 2431 Polygons
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Rebuilding Tangent Space for 2431 Polygons
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulator.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Mouth1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Mouth1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Eye1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Eye1.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body2.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Iris2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Iris2.png
+CreateTexture2D11 - w = 128, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+Report Uniform Parameter 
+  Vertex Shader (Default) 
+    Proj : Index=4 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,0.0,0.0,0.0,1.00002503,-0.05000125,0.0,0.0...
+    MatrixPalette : Index=18 Type=float4x4 Value= <Not Assigned>
+    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
+    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
+    ShadowMapInfo2 : Index=15 Type=float4 Value=0.001,1.0,0.0,0.0
+    CameraPos : Index=5 Type=float4 Value=0.0,2.0,-38.0,0.0
+    SunLight : Index=6 Type=float4 Value=0.0000006,-0.93981087,0.34169513,0.0
+    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
+    ViewProj : Index=0 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,-4.62250328,0.0,0.0,1.00002503,37.95094681...
+    UVInfo : Index=16 Type=float4 Value=0.0,0.0,1.0,1.0
+    View : Index=3 Type=float4x4 Value=1.0,0.0,0.0,-0.0,0.0,1.0,0.0,-2.0,0.0,0.0,1.0,38.0,0.0,0.0,0.0,1.0
+    World : Index=1 Type=float4x4 Value=130.0,0.0,0.0,0.0,0.0,0.00000775,-0.99999994,0.0,0.0,129.99998474,0.00000006,0.0,0.0...
+    WorldInverse : Index=2 Type=float4x4 Value=0.00769231,-0.0,0.0,-0.0,-0.0,0.0,0.00769231,0.0,0.0,-1.00000012,0.00000006,-0.0,-0.0...
+    UseMatrixPalette : Index=17 Type=float4 Value=0.0,0.0,0.0,0.0
+  Pixel Shader (Default) 
+    Opacity : Index=21 Type=float4 Value=1.0,0.0,0.0,0.0
+    LightFactorSpotDirection : Index=19 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    MaterialSpecular : Index=11 Type=float4 Value=0.2,0.0,0.0,0.0
+    AmbientColorRate : Index=14 Type=float4 Value=0.0,0.0,0.0,0.0
+    NormalMapDirection : Index=25 Type=float4 Value=1.0,1.0,1.0,1.0
+    ShadowInfo : Index=2 Type=float4 Value=0.5,1.0,1.0,0.0
+    ShadowMapInfo : Index=3 Type=float4 Value=0.0,0.05,0.0,1.0
+    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
+    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
+    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
+    Glossiness : Index=15 Type=float4 Value=0.0,0.0,0.0,0.0
+    SoftShadowInfo : Index=5 Type=float4 Value= <Not Assigned>
+    SoftShadowInfo3 : Index=7 Type=float4 Value= <Not Assigned>
+    StaticSoftShadowInfo : Index=9 Type=float4 Value= <Not Assigned>
+    CameraPos : Index=16 Type=float4 Value=0.0,2.0,-38.0,0.0
+    SunLight : Index=24 Type=float4 Value=0.0000006,-0.93981087,0.34169513,0.0
+    ClipPlane : Index=1 Type=float4 Value=0.0,0.0,0.0,340282346638528859811704183484516925440.0
+    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
+    FogFactor : Index=22 Type=float4 Value=0.0,0.0,100.0,0.0
+    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
+    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
+    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
+    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
+    FocusingDistance : Index=37 Type=float4 Value=5.0,0.0,0.0,0.0
+    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
+    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
+    LightFactor : Index=18 Type=float4 Value=0.0000006,-0.93981087,0.34169513,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    FarClamp : Index=38 Type=float4 Value=1.0,0.0,0.0,0.0
+    DOFEnable : Index=39 Type=float4 Value=0.0,0.0,0.0,0.0
+    LightFactorSpotFactor : Index=20 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    LightColor : Index=17 Type=float4 Value=0.69999999,0.69999999,0.69999999,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    FogColor : Index=23 Type=float4 Value=1.0,1.0,1.0,1.0
+    DiffuseColor : Index=27 Type=float4 Value=0.0,0.0,0.0,0.0
+    ShadingModel : Index=26 Type=float4 Value=0.0,0.0,0.0,0.0
+    FocalDistance : Index=33 Type=float4 Value= <Not Assigned>
+    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
+    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
+    EnvMapProjection : Index=31 Type=float4 Value=3.0,1.0,0.0,11.0
+    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    TextureUVTransform : Index=32 Type=float4 Value=0.0,0.0,1.0,1.0
+Report Uniform Parameter 
+  Vertex Shader (Default) 
+    Proj : Index=4 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,0.0,0.0,0.0,1.00002503,-0.05000125,0.0,0.0...
+    MatrixPalette : Index=18 Type=float4x4 Value= <Not Assigned>
+    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
+    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
+    ShadowMapInfo2 : Index=15 Type=float4 Value=0.001,1.0,0.0,0.0
+    CameraPos : Index=5 Type=float4 Value=0.0,2.0,-38.0,0.0
+    SunLight : Index=6 Type=float4 Value=0.0000006,-0.93981087,0.34169513,0.0
+    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
+    ViewProj : Index=0 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,-4.62250328,0.0,0.0,1.00002503,37.95094681...
+    UVInfo : Index=16 Type=float4 Value=0.0,0.0,1.0,1.0
+    View : Index=3 Type=float4x4 Value=1.0,0.0,0.0,-0.0,0.0,1.0,0.0,-2.0,0.0,0.0,1.0,38.0,0.0,0.0,0.0,1.0
+    World : Index=1 Type=float4x4 Value=-0.04328363,0.0,-0.02503055,-8.04428005,0.0,0.05,0.0,17.36935043,0.02503055,0.0,-0.04328363...
+    WorldInverse : Index=2 Type=float4x4 Value=-17.31344604,0.0,10.01221561,397.14239502,0.0,20.0,0.0,-347.38699341,-10.01221561...
+    UseMatrixPalette : Index=17 Type=float4 Value=0.0,0.0,0.0,0.0
+  Pixel Shader (Default) 
+    Opacity : Index=21 Type=float4 Value=1.0,0.0,0.0,0.0
+    LightFactorSpotDirection : Index=19 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    MaterialSpecular : Index=11 Type=float4 Value=0.2,0.0,0.0,0.0
+    AmbientColorRate : Index=14 Type=float4 Value=0.0,0.0,0.0,0.0
+    NormalMapDirection : Index=25 Type=float4 Value=1.0,1.0,1.0,1.0
+    ShadowInfo : Index=2 Type=float4 Value=0.5,1.0,1.0,0.0
+    ShadowMapInfo : Index=3 Type=float4 Value=0.0,0.05,0.0,1.0
+    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
+    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
+    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
+    Glossiness : Index=15 Type=float4 Value=0.0,0.0,0.0,0.0
+    SoftShadowInfo : Index=5 Type=float4 Value= <Not Assigned>
+    SoftShadowInfo3 : Index=7 Type=float4 Value= <Not Assigned>
+    StaticSoftShadowInfo : Index=9 Type=float4 Value= <Not Assigned>
+    CameraPos : Index=16 Type=float4 Value=0.0,2.0,-38.0,0.0
+    SunLight : Index=24 Type=float4 Value=0.0000006,-0.93981087,0.34169513,0.0
+    ClipPlane : Index=1 Type=float4 Value=0.0,0.0,0.0,340282346638528859811704183484516925440.0
+    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
+    FogFactor : Index=22 Type=float4 Value=0.0,0.0,100.0,0.0
+    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
+    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
+    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
+    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
+    FocusingDistance : Index=37 Type=float4 Value=5.0,0.0,0.0,0.0
+    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
+    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
+    LightFactor : Index=18 Type=float4 Value=0.0000006,-0.93981087,0.34169513,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    FarClamp : Index=38 Type=float4 Value=1.0,0.0,0.0,0.0
+    DOFEnable : Index=39 Type=float4 Value=0.0,0.0,0.0,0.0
+    LightFactorSpotFactor : Index=20 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    LightColor : Index=17 Type=float4 Value=0.69999999,0.69999999,0.69999999,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    FogColor : Index=23 Type=float4 Value=1.0,1.0,1.0,1.0
+    DiffuseColor : Index=27 Type=float4 Value=0.0,0.50196081,0.0,1.0
+    ShadingModel : Index=26 Type=float4 Value=0.0,0.0,0.0,0.0
+    FocalDistance : Index=33 Type=float4 Value= <Not Assigned>
+    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
+    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
+    EnvMapProjection : Index=31 Type=float4 Value=3.0,1.0,0.0,11.0
+    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+    TextureUVTransform : Index=32 Type=float4 Value=0.0,0.0,1.0,1.0
+Open Texture Gizmo.jpg
+CreateTexture2D11 - w = 128, h = 128, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 288 / 355 / 0 / 357 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 15 / 9 / 0 / 16 / 0 (Pass/Visible/Box/Check/Occlusion)
+EGui_Game_OnClick
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/ControllPlayer.py
+Loading Actor Python $project/Assets/Scripts/GameMusic.py
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon_gamescene.py
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Mouth1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Mouth1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Eye1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Eye1.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body2.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Iris2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Iris2.png
+CreateTexture2D11 - w = 128, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriEnemy.py
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Compile Shaders ... DefaultFrame - TestFrameRed
 Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
 Resource::Shader Compile Error TestFrameRed
@@ -192,108 +382,81 @@ CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
 Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
-Loading Actor Python $project/Assets/Scripts/LearningMusic.py
-Rebuilding Tangent Space for 128 Polygons
-Loading Actor Python $project/Assets/Scripts/DanuriSimulator.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
-Loading Actor Python $project/Assets/Scripts/DanuriSimulation.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningEnemy.py
-Loading Actor Python $project/Assets/Scripts/DanuriLearningPlayer.py
-Loading Actor Python $project/Assets/Scripts/DanuriBombCon.py
 Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
-Loading Actor Python $project/Assets/Scripts/LearningMusic.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Loading Actor Python $project/Assets/Scripts/ControllPlayer.py
+Loading Actor Python $project/Assets/Scripts/GameMusic.py
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon_gamescene.py
+Loading Actor Python $project/Assets/Scripts/DanuriEnemy.py
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
 Compile Shaders ... GuiDefault - GuiDefault
 Linking Shaders ...
 Shader Build Summary ...
 VertexShader Uniform Information : 
-  ShadowMapDepthMax : Index=0 Size=1 Offset=512 Type=float4 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
   ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
-  MatrixPalette : Index=2 Size=800 Offset=560 Type=float4x4 
-  CameraPos : Index=3 Size=1 Offset=384 Type=float4 
-  AmbientColor : Index=4 Size=1 Offset=13360 Type=float4 
-  DrawPhase : Index=5 Size=1 Offset=416 Type=float4 
-  UseShadowMap : Index=6 Size=1 Offset=496 Type=float4 
-  ShadowMapMatrix : Index=7 Size=4 Offset=432 Type=float4x4 
-  SunLight : Index=8 Size=1 Offset=400 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
   ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
-  View : Index=10 Size=4 Offset=256 Type=float4x4 
-  Proj : Index=11 Size=4 Offset=320 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
   World : Index=12 Size=4 Offset=64 Type=float4x4 
   ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
   WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
   UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
 PixelShader Uniform Information : 
-  LightFactorSpotDirection : Index=0 Size=16 Offset=688 Type=float4 
-  NormalMapDirection : Index=1 Size=1 Offset=1344 Type=float4 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
   MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
   AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
-  CameraPos : Index=4 Size=1 Offset=144 Type=float4 
-  AmbientColor : Index=5 Size=1 Offset=96 Type=float4 
-  AlphaTest : Index=6 Size=1 Offset=1392 Type=float4 
-  ClipPlane : Index=7 Size=1 Offset=32 Type=float4 
-  DrawPhase : Index=8 Size=1 Offset=0 Type=float4 
-  UseShadowMap : Index=9 Size=1 Offset=16 Type=float4 
-  Glossiness : Index=10 Size=1 Offset=128 Type=float4 
-  SunLight : Index=11 Size=1 Offset=1264 Type=float4 
-  MaterialDiffuse : Index=12 Size=1 Offset=80 Type=float4 
-  MaterialAmbient : Index=13 Size=1 Offset=48 Type=float4 
-  FogFactor : Index=14 Size=1 Offset=1216 Type=float4 
-  Opacity : Index=15 Size=1 Offset=1200 Type=float4 
-  AlbedoColor : Index=16 Size=1 Offset=1248 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
   ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
-  BackgroundType : Index=18 Size=1 Offset=1408 Type=float4 
-  LightFactor : Index=19 Size=17 Offset=416 Type=float4 
-  LightFactorSpotFactor : Index=20 Size=16 Offset=944 Type=float4 
-  LightColor : Index=21 Size=16 Offset=160 Type=float4 
-  FogColor : Index=22 Size=1 Offset=1232 Type=float4 
-  ShadingModel : Index=23 Size=1 Offset=1360 Type=float4 
-  DiffuseColor : Index=24 Size=1 Offset=1376 Type=float4 
-  InternalMipMapInfo : Index=25 Size=11 Offset=1424 Type=float4 
-  EnvMapProjection : Index=26 Size=1 Offset=1600 Type=float4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
   TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
 PixelShader UniformSampler Information : 
   TextureDiffuse : Index=0 SlotNo=0
 VertexShader Attribute Information : 
-  Weight : Order=5, Index=0 Type=float4 Size=4
-  UV : Order=1, Index=1 Type=float4 Size=4
-  Normal : Order=2, Index=2 Type=float4 Size=4
-  Tangent : Order=3, Index=3 Type=float4 Size=4
-  Diffuse : Order=4, Index=4 Type=float4 Size=4
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
   PaletteIndex : Order=6, Index=5 Type=float4 Size=4
   Position : Order=0, Index=6 Type=float3 Size=3
 VertexShader Attribute Information (Ordered): 
@@ -306,149 +469,854 @@ VertexShader Attribute Information (Ordered):
   PaletteIndex : Order=6, Type=float4 Size=4
 
 Shader Build Finished.
-Report Uniform Parameter 
-  Vertex Shader (Default) 
-    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
-    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
-    MatrixPalette : Index=18 Type=float4x4 Value= <Not Assigned>
-    ShadowMapInfo2 : Index=15 Type=float4 Value=0.001,1.0,0.0,0.0
-    CameraPos : Index=5 Type=float4 Value=0.0,100.0,0.0,0.0
-    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
-    SunLight : Index=6 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    ViewProj : Index=0 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,0.00000014,2.31125164,-0.00001378,0.0,-1.00002503,0.00000006...
-    View : Index=3 Type=float4x4 Value=1.0,0.0,-0.0,-0.0,0.0,0.00000006,1.0,-0.00000596,0.0,-1.0,0.00000006,100.0,0.0,0.0...
-    Proj : Index=4 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,0.0,0.0,0.0,1.00002503,-0.05000125,0.0,0.0...
-    World : Index=1 Type=float4x4 Value=1.0,0.0,0.0,-1.40969288,0.0,1.0,0.0,2.0,0.0,0.0,1.0,0.19534712,0.0,0.0,0.0,1.0
-    UVInfo : Index=16 Type=float4 Value=0.0,0.0,1.0,1.0
-    WorldInverse : Index=2 Type=float4x4 Value=1.0,-0.0,0.0,1.40969288,-0.0,1.0,-0.0,-2.0,0.0,-0.0,1.0,-0.19534712,-0.0,0.0,-0.0...
-    UseMatrixPalette : Index=17 Type=float4 Value=0.0,0.0,0.0,0.0
-  Pixel Shader (Default) 
-    LightFactorSpotDirection : Index=19 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    NormalMapDirection : Index=25 Type=float4 Value=1.0,1.0,1.0,1.0
-    MaterialSpecular : Index=11 Type=float4 Value=0.2,0.0,0.0,0.0
-    AmbientColorRate : Index=14 Type=float4 Value=0.0,0.0,0.0,0.0
-    ShadowInfo : Index=2 Type=float4 Value=0.5,1.0,1.0,0.0
-    ShadowMapInfo : Index=3 Type=float4 Value=0.0,0.05,0.0,1.0
-    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
-    StaticSoftShadowInfo : Index=9 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo : Index=5 Type=float4 Value= <Not Assigned>
-    CameraPos : Index=16 Type=float4 Value=0.0,100.0,0.0,0.0
-    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
-    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
-    ClipPlane : Index=1 Type=float4 Value=0.0,0.0,0.0,340282346638528859811704183484516925440.0
-    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
-    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
-    Glossiness : Index=15 Type=float4 Value=0.0,0.0,0.0,0.0
-    SunLight : Index=24 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    SoftShadowInfo3 : Index=7 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
-    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
-    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
-    FogFactor : Index=22 Type=float4 Value=0.0,0.0,100.0,0.0
-    Opacity : Index=21 Type=float4 Value=1.0,0.0,0.0,0.0
-    FocusingDistance : Index=37 Type=float4 Value=5.0,0.0,0.0,0.0
-    DOFEnable : Index=39 Type=float4 Value=0.0,0.0,0.0,0.0
-    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
-    LightFactor : Index=18 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    FarClamp : Index=38 Type=float4 Value=1.0,0.0,0.0,0.0
-    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
-    LightFactorSpotFactor : Index=20 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    LightColor : Index=17 Type=float4 Value=1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    FogColor : Index=23 Type=float4 Value=1.0,1.0,1.0,1.0
-    FocalDistance : Index=33 Type=float4 Value= <Not Assigned>
-    ShadingModel : Index=26 Type=float4 Value=0.0,0.0,0.0,0.0
-    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
-    DiffuseColor : Index=27 Type=float4 Value=0.54509807,0.27058825,0.07450981,1.0
-    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    EnvMapProjection : Index=31 Type=float4 Value=3.0,1.0,0.0,11.0
-    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
-    TextureUVTransform : Index=32 Type=float4 Value=0.0,0.0,1.0,1.0
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
-Report Uniform Parameter 
-  Vertex Shader (Default) 
-    ShadowInfo : Index=13 Type=float4 Value=0.5,1.0,1.0,0.0
-    ShadowMapInfo : Index=14 Type=float4 Value=0.0,0.05,0.0,1.0
-    MatrixPalette : Index=18 Type=float4x4 Value=-0.15000001,0.0,-0.00000001,-4.77837658,0.0,0.15000001,0.0,2.0,0.00000001,0.0,-0.15000001...
-    ShadowMapInfo2 : Index=15 Type=float4 Value=0.001,1.0,0.0,0.0
-    CameraPos : Index=5 Type=float4 Value=0.0,100.0,0.0,0.0
-    DrawPhase : Index=7 Type=float4 Value=0.0,0.0,0.0,0.0
-    ShadowMapMatrix : Index=8 Type=float4x4 Value= <Not Assigned>
-    SunLight : Index=6 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    ViewProj : Index=0 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,0.00000014,2.31125164,-0.00001378,0.0,-1.00002503,0.00000006...
-    View : Index=3 Type=float4x4 Value=1.0,0.0,-0.0,-0.0,0.0,0.00000006,1.0,-0.00000596,0.0,-1.0,0.00000006,100.0,0.0,0.0...
-    Proj : Index=4 Type=float4x4 Value=1.28018427,0.0,0.0,0.0,0.0,2.31125164,0.0,0.0,0.0,0.0,1.00002503,-0.05000125,0.0,0.0...
-    World : Index=1 Type=float4x4 Value=1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0
-    UVInfo : Index=16 Type=float4 Value=0.0,0.0,1.0,1.0
-    WorldInverse : Index=2 Type=float4x4 Value=1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0
-    UseMatrixPalette : Index=17 Type=float4 Value=1.0,9.0,0.0,0.0
-  Pixel Shader (Default) 
-    LightFactorSpotDirection : Index=19 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    NormalMapDirection : Index=25 Type=float4 Value=1.0,1.0,1.0,1.0
-    MaterialSpecular : Index=11 Type=float4 Value=0.2,0.0,0.0,0.0
-    AmbientColorRate : Index=14 Type=float4 Value=0.0,0.0,0.0,0.0
-    ShadowInfo : Index=2 Type=float4 Value=0.5,1.0,1.0,0.0
-    ShadowMapInfo : Index=3 Type=float4 Value=0.0,0.05,0.0,1.0
-    ShadowMapInfo2 : Index=4 Type=float4 Value=0.001,1.0,0.0,0.0
-    StaticSoftShadowInfo : Index=9 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo : Index=5 Type=float4 Value= <Not Assigned>
-    CameraPos : Index=16 Type=float4 Value=0.0,100.0,0.0,0.0
-    AmbientColor : Index=13 Type=float4 Value=1.0,1.0,1.0,1.0
-    AlphaTest : Index=28 Type=float4 Value=0.0,0.0,0.0,0.0
-    ClipPlane : Index=1 Type=float4 Value=0.0,0.0,0.0,340282346638528859811704183484516925440.0
-    DrawPhase : Index=0 Type=float4 Value=0.0,0.0,0.0,0.0
-    SoftShadowInfo2 : Index=6 Type=float4 Value= <Not Assigned>
-    Glossiness : Index=15 Type=float4 Value=0.0,0.0,0.0,0.0
-    SunLight : Index=24 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0
-    SoftShadowInfo3 : Index=7 Type=float4 Value= <Not Assigned>
-    SoftShadowInfo4 : Index=8 Type=float4 Value= <Not Assigned>
-    MaterialDiffuse : Index=12 Type=float4 Value=1.0,0.0,0.0,0.0
-    MaterialAmbient : Index=10 Type=float4 Value=0.2,0.0,0.0,0.0
-    FogFactor : Index=22 Type=float4 Value=0.0,0.0,100.0,0.0
-    Opacity : Index=21 Type=float4 Value=1.0,0.0,0.0,0.0
-    FocusingDistance : Index=37 Type=float4 Value=5.0,0.0,0.0,0.0
-    DOFEnable : Index=39 Type=float4 Value=0.0,0.0,0.0,0.0
-    BackgroundType : Index=29 Type=float4 Value=2.0,0.0,0.0,0.0
-    LightFactor : Index=18 Type=float4 Value=-0.57735032,-0.57735032,0.5773502,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    FarClamp : Index=38 Type=float4 Value=1.0,0.0,0.0,0.0
-    FocalSize : Index=34 Type=float4 Value=0.0,0.0,0.0,0.0
-    LightFactorSpotFactor : Index=20 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    LightColor : Index=17 Type=float4 Value=1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    FogColor : Index=23 Type=float4 Value=1.0,1.0,1.0,1.0
-    FocalDistance : Index=33 Type=float4 Value= <Not Assigned>
-    ShadingModel : Index=26 Type=float4 Value=0.0,0.0,0.0,0.0
-    TextureGamma : Index=35 Type=float4 Value=1.0,0.0,0.0,0.0
-    DiffuseColor : Index=27 Type=float4 Value=0.0,0.0,0.0,0.0
-    InternalMipMapInfo : Index=30 Type=float4 Value=0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
-    EnvMapProjection : Index=31 Type=float4 Value=3.0,1.0,0.0,11.0
-    EnvironmentGamma : Index=36 Type=float4 Value=1.0,0.0,0.0,0.0
-    TextureUVTransform : Index=32 Type=float4 Value=0.0,0.0,1.0,1.0
-CullStatus 20 / 70 / 0 / 76 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 10 / 8 / 0 / 12 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 15 / 56 / 0 / 66 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 10 / 8 / 0 / 12 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/CatchMusic.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/CatchMusic.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+CullStatus 288 / 334 / 0 / 336 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 10 / 7 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+EGui_Button_OnClick
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Mouth1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Mouth1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Eye1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Eye1.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body2.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Iris2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Iris2.png
+CreateTexture2D11 - w = 128, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+EGui_Game_OnClick
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/ControllPlayer.py
+Loading Actor Python $project/Assets/Scripts/GameMusic.py
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon_gamescene.py
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Mouth1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Mouth1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Eye1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Eye1.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body2.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Iris2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Iris2.png
+CreateTexture2D11 - w = 128, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriEnemy.py
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Loading Actor Python $project/Assets/Scripts/ControllPlayer.py
+Loading Actor Python $project/Assets/Scripts/GameMusic.py
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/DanuriBombCon_gamescene.py
+Loading Actor Python $project/Assets/Scripts/DanuriEnemy.py
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 288 / 356 / 0 / 358 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 288 / 356 / 0 / 358 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
-CullStatus 22 / 54 / 0 / 56 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 10 / 8 / 0 / 12 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 19 / 69 / 0 / 76 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 10 / 8 / 0 / 12 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
-CullStatus 13 / 45 / 0 / 56 / 0 (Pass/Visible/Box/Check/Occlusion)
-CullStatus 10 / 8 / 0 / 12 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
 Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
 CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
-Open Texture Gizmo.jpg
-CreateTexture2D11 - w = 128, h = 128, MipLevels = 1, Format = DYNAMIC
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
 CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 288 / 356 / 0 / 358 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 289 / 366 / 0 / 368 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+CullStatus 293 / 406 / 0 / 408 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 9 / 6 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Assets/Resources/Object/PokeBalls/ob0204_00.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/CatchMusic.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/LoadGameScene.py
+Loading Actor Python $project/Assets/Scripts/CatchMusic.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+CullStatus 288 / 334 / 0 / 336 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 10 / 7 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 288 / 334 / 0 / 336 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 10 / 7 / 0 / 14 / 0 (Pass/Visible/Box/Check/Occlusion)
+EGui_Button_OnClick
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Open Texture Texture.jpg
+CreateTexture2D11 - w = 64, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/Font/F1_0.png
+CreateTexture2D11 - w = 2048, h = 2048, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_1.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_2.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture enginedata/GUI/ListBox/Button1_3.png
+CreateTexture2D11 - w = 256, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Mouth1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Mouth1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Eye1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Eye1.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body1.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body1.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Body2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Body2.png
+CreateTexture2D11 - w = 128, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Open Texture Assets/Resources/Object/Jigglypuff/pm0039_00_Iris2.png
+Open Texture Assets/Resources/Object/Jigglypuff/Images/pm0039_00_Iris2.png
+CreateTexture2D11 - w = 128, h = 64, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Compile Shaders ... DefaultFrame - TestFrameRed
+Cannot Load Pixel Shader File TestFrameRed C:/Danuri-VR/enginedata/hls11/TestFrameRed.Pixel.hls
+Resource::Shader Compile Error TestFrameRed
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRed
+
+Compile Shaders ... DefaultFrame - TestFrameRedPBR
+Cannot Load Pixel Shader File TestFrameRedPBR C:/Danuri-VR/enginedata/hls11/TestFrameRedPBR.Pixel.hls
+Resource::Shader Compile Error TestFrameRedPBR
+
+Shader Build Finished.
+Resource::Shader Program Compile Error DefaultFrame TestFrameRedPBR
+
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+ResourceFbxAnimation::Create Assets/Resources/Object/Tree/CartoonTree.1.fani
+Rebuilding Tangent Space for 128 Polygons
+Open Texture Assets/Resources/3dsmax-texture-concrete (7).jpg
+CreateTexture2D11 - w = 1024, h = 1024, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Rebuilding Tangent Space for 2 Polygons
+Open Texture Assets/Resources/spa_kusa01.png
+Open Texture Temp/Converted/Assets_spa_kusa01.png
+CreateTexture2D11 - w = 256, h = 256, MipLevels = 1, Format = DYNAMIC
+CreateShaderSource11Texture2D - MipLevels = 1 MostDetailedMip = 0
+Loading Actor Python $project/Assets/Scripts/SelectScene.py
+Compile Shaders ... GuiDefault - GuiDefault
+Linking Shaders ...
+Shader Build Summary ...
+VertexShader Uniform Information : 
+  Proj : Index=0 Size=4 Offset=320 Type=float4x4 
+  ShadowMapDepthMin : Index=1 Size=1 Offset=528 Type=float4 
+  ShadowMapDepthMax : Index=2 Size=1 Offset=512 Type=float4 
+  MatrixPalette : Index=3 Size=800 Offset=560 Type=float4x4 
+  CameraPos : Index=4 Size=1 Offset=384 Type=float4 
+  ShadowMapMatrix : Index=5 Size=4 Offset=432 Type=float4x4 
+  SunLight : Index=6 Size=1 Offset=400 Type=float4 
+  UseShadowMap : Index=7 Size=1 Offset=496 Type=float4 
+  DrawPhase : Index=8 Size=1 Offset=416 Type=float4 
+  ViewProj : Index=9 Size=4 Offset=0 Type=float4x4 
+  AmbientColor : Index=10 Size=1 Offset=13360 Type=float4 
+  View : Index=11 Size=4 Offset=256 Type=float4x4 
+  World : Index=12 Size=4 Offset=64 Type=float4x4 
+  ObjectWorld : Index=13 Size=4 Offset=192 Type=float4x4 
+  WorldInverse : Index=14 Size=4 Offset=128 Type=float4x4 
+  UseMatrixPalette : Index=15 Size=1 Offset=544 Type=float4 
+PixelShader Uniform Information : 
+  Opacity : Index=0 Size=1 Offset=1200 Type=float4 
+  LightFactorSpotDirection : Index=1 Size=16 Offset=688 Type=float4 
+  MaterialSpecular : Index=2 Size=1 Offset=64 Type=float4 
+  AmbientColorRate : Index=3 Size=1 Offset=112 Type=float4 
+  NormalMapDirection : Index=4 Size=1 Offset=1344 Type=float4 
+  Glossiness : Index=5 Size=1 Offset=128 Type=float4 
+  CameraPos : Index=6 Size=1 Offset=144 Type=float4 
+  SunLight : Index=7 Size=1 Offset=1264 Type=float4 
+  UseShadowMap : Index=8 Size=1 Offset=16 Type=float4 
+  ClipPlane : Index=9 Size=1 Offset=32 Type=float4 
+  DrawPhase : Index=10 Size=1 Offset=0 Type=float4 
+  FogFactor : Index=11 Size=1 Offset=1216 Type=float4 
+  AmbientColor : Index=12 Size=1 Offset=96 Type=float4 
+  MaterialDiffuse : Index=13 Size=1 Offset=80 Type=float4 
+  AlphaTest : Index=14 Size=1 Offset=1392 Type=float4 
+  MaterialAmbient : Index=15 Size=1 Offset=48 Type=float4 
+  BackgroundType : Index=16 Size=1 Offset=1408 Type=float4 
+  ObjectWorld : Index=17 Size=4 Offset=1280 Type=float4x4 
+  LightFactor : Index=18 Size=17 Offset=416 Type=float4 
+  LightFactorSpotFactor : Index=19 Size=16 Offset=944 Type=float4 
+  LightColor : Index=20 Size=16 Offset=160 Type=float4 
+  FogColor : Index=21 Size=1 Offset=1232 Type=float4 
+  AlbedoColor : Index=22 Size=1 Offset=1248 Type=float4 
+  DiffuseColor : Index=23 Size=1 Offset=1376 Type=float4 
+  ShadingModel : Index=24 Size=1 Offset=1360 Type=float4 
+  EnvMapProjection : Index=25 Size=1 Offset=1600 Type=float4 
+  InternalMipMapInfo : Index=26 Size=11 Offset=1424 Type=float4 
+  TextureUVTransform : Index=27 Size=1 Offset=1616 Type=float4 
+PixelShader UniformSampler Information : 
+  TextureDiffuse : Index=0 SlotNo=0
+VertexShader Attribute Information : 
+  Tangent : Order=3, Index=0 Type=float4 Size=4
+  Diffuse : Order=4, Index=1 Type=float4 Size=4
+  Weight : Order=5, Index=2 Type=float4 Size=4
+  UV : Order=1, Index=3 Type=float4 Size=4
+  Normal : Order=2, Index=4 Type=float4 Size=4
+  PaletteIndex : Order=6, Index=5 Type=float4 Size=4
+  Position : Order=0, Index=6 Type=float3 Size=3
+VertexShader Attribute Information (Ordered): 
+  Position : Order=0, Type=float3 Size=3
+  UV : Order=1, Type=float4 Size=4
+  Normal : Order=2, Type=float4 Size=4
+  Tangent : Order=3, Type=float4 Size=4
+  Diffuse : Order=4, Type=float4 Size=4
+  Weight : Order=5, Type=float4 Size=4
+  PaletteIndex : Order=6, Type=float4 Size=4
+
+Shader Build Finished.
+CullStatus 288 / 355 / 0 / 357 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 15 / 9 / 0 / 16 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 288 / 355 / 0 / 357 / 0 (Pass/Visible/Box/Check/Occlusion)
+CullStatus 15 / 9 / 0 / 16 / 0 (Pass/Visible/Box/Check/Occlusion)

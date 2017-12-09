@@ -10,6 +10,14 @@ class ControllPlayer(Actor.Actor):
 
 		self._pos = Math3d.Vector3(0)
 		self._targetDir = Math3d.Vector3(0)
+		self._radius = 38
+		self._angle = 0
+		self._look = 0
+		self._targetDir = (0,0,0)
+		self._bombCount = 0
+		self._enemyR = 2.0
+		self._ballR = 0.5
+		self._distance = self._enemyR + self._ballR
 
 	def OnCreate(self, uid):
 		self._radius = 38
@@ -18,10 +26,10 @@ class ControllPlayer(Actor.Actor):
 		self._Up = self.cam.FindComponentByType("TransformGroup").GetUp()
 		self._look = 0
 		self._targetDir = (0,0,0)
-		self._bombCount = 0;
+		self._bombCount = 0
 
-		self._enemyR = 2.0;
-		self._ballR = 0.5;
+		self._enemyR = 2.0
+		self._ballR = 0.5
 		self._distance = self._enemyR + self._ballR
 		self.bomb_con.AddNewComponent("TransformGroup")
 		self.bomb_con_script = self.bomb_con.FindComponentByType("ScriptComponent")

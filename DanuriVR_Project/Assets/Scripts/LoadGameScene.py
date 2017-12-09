@@ -10,5 +10,5 @@ class LoadGameScene(Actor.Actor):
 
 	def OnMessage(self, msg, number, Vector4_lparm, Vector4_wparam):
 		if (msg == "Button_OnClick") :
-			result = GetWorldContainer().FindComponentByType("World").LoadScene("$project/Assets/main.fsf");
-			print(result)
+			#print(result)
+			result = GetWorldContainer().FindComponentByType("World").LoadScene("$project/Assets/main.fsf")
